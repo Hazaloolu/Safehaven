@@ -1,0 +1,193 @@
+/* CDN fonts */
+@import url('http://fonts.cdnfonts.com/css/cs-harley');
+@import url('https://fonts.cdnfonts.com/css/svn-gilroy');
+@import url('http://fonts.cdnfonts.com/css/dm-sans');
+
+
+:root{
+    --background-white:#FFFFFF;
+    --cool-blue:#00897b;
+    --black:#303030;
+}
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--background-white);
+    font-family: 'DM Sans', sans-serif;
+}
+
+
+
+header{
+    padding: 2em;
+    border-bottom: .5px solid gray;
+}
+
+.site-logo{
+    font-family:'CS Harley', sans-serif;
+    font-size: 1.5rem;
+}
+
+.welcome{
+  margin-top: 2em;
+}
+.welcome h1,p{
+  text-align: center;
+  line-height: 2em;
+}
+
+/* ------------ form styling----- */
+.form-container{
+  width: 50%;
+  margin: auto;
+  margin-top: 3%;
+}
+.login-form{
+  width: 60%;
+  margin-top:3em;
+  margin: auto;
+  display: grid;
+}
+
+label{
+  font-size: 16px;
+  font-weight:500;
+  line-height: 2em;
+}
+
+.email-label{
+  margin-top: .5em;
+}
+
+.login-form input[type='email'], .login-form input[type='password']{
+
+  padding: 1em;
+  margin-bottom: 1.5em;
+  font-weight: 500;
+
+}
+
+.login-form a{
+  color:var(--black);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.login-form a:hover{
+  text-decoration: underline;
+}
+
+.error-msg{
+background-color:  #ce2029;
+text-align: left;
+color: var(--background-white);
+padding: .5em 1em;
+margin-top: .5em;
+font-size: 14px;
+}
+#error-img{
+  
+  font-size: 20px;
+  padding: 0 1em;
+}
+form i{
+  padding: .5em;
+  font-size: 18px;
+}
+
+.form-flex{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1em;
+}
+
+.form-flex button{
+  width: ;
+  padding: .5em 2em;
+  outline: none;
+  border: none;
+  background: none;
+  font-size: 16px;
+  color: var(--background-white);
+  background-color: var(--cool-blue);
+}
+
+
+#sign-up{
+  line-height: 4em;
+ 
+}
+
+#sign-up a{
+  color: #00897b;
+}
+
+/* ----------- Registration styling ----------- */
+.formcontainer{
+  width: 50%;
+  margin: auto;
+  margin-top: 2%;
+}
+
+.formcontainer h1{
+  text-align: center;
+}
+.formcontainer #p-1{
+  padding-bottom:1em;
+}
+.registrationForm{
+  width: 60%;
+  margin-top:3em;
+  margin: auto;
+  
+}
+
+.registrationForm input[type='email'],
+.registrationForm input[type='text'],
+.registrationForm input[type='tel'],
+.registrationForm input[type='password']{
+  width: 100%;
+  margin: auto;
+  padding: 1em;
+  margin-bottom: 1.5em;
+  font-weight: 500;
+}
+
+#hide{
+ 
+}
+
+.registrationForm button{
+  width: 50%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  border: none;
+  outline: none;
+  background-color: var(--cool-blue);
+  color: var(--background-white);
+  padding: 1em;
+  font-size: 16px;
+}
+
+.registrationForm a{
+  text-decoration: none;
+  color: var(--cool-blue);
+}
+
+/*  */
+
+.double-input{
+  display: flex;
+  justify-content: space-between;
+}
+
+#inputUsername{
+  width: 95%;
+}

@@ -1,0 +1,83 @@
+@import url('http://fonts.cdnfonts.com/css/cs-harley');
+@import url('https://fonts.cdnfonts.com/css/svn-gilroy');
+@import url('https://fonts.cdnfonts.com/css/svn-gilroy');
+
+:root{
+    --background-white:#FFFFFF;
+    --cool-blue:#00897b;
+    --black:#303030;
+}
+
+
+header{
+    width: 100%;
+    border-bottom: .2px solid #F1F1F1;
+    padding-bottom: 1em;
+}
+
+.site-logo{
+   display: flex;
+   align-items: c;
+}
+ 
+ main{
+    width:100%;
+ }
+ /*    General       */
+  #i{
+   
+   font-size: 20px;
+   
+ }
+ .wrapper{
+    display: flex;
+ }
+
+ .left{
+    flex-basis: 25%;
+    height: 90vh;
+     border-right: 2px solid #F1F1F1;
+ }   
+ 
+ .right{
+   width: 75%;
+   padding: 3em;
+  
+ }
+
+
+ /* --------- Search field styling -------- */
+
+ .right-search-field{
+   width: 100%;
+   margin: auto;
+ }
+
+ .right-search-field .Search-field{
+   width:100%
+ }
+
+ .right input{
+   width: 100%;
+ }
+
+ .image-container img{
+   margin: auto;
+   display: flex;
+   justify-content: center;
+   width: 50%;
+   height: auto;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+ 

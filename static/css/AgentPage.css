@@ -1,0 +1,38 @@
+main{
+    width: 98%;
+    margin: auto;
+    padding-top: 3%;
+}
+
+.hero-section{
+    display: flex;
+}
+
+.hero-section h1{
+    width: 70%;
+    font-size: 3em;
+    padding-top: 1em;
+   
+}
+
+.hero-links{
+    width: 50%;
+    display:flex;
+    justify-content:space-between;
+    margin: auto;
+    margin-top: 5em;
+    font-size: 16px;
+}
+
+.colored-link{
+    background-color: var(--cool-blue);
+    color: var(--background-white);
+    padding: 1em 2em;
+}
+
+.not-colored{
+    color: var(--cool-blue);
+    background-color: var(--background-white);
+    padding: 1em 2em;
+    font-weight: 500;
+}

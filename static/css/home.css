@@ -1,6 +1,7 @@
 /* CDN fonts */
 @import url('http://fonts.cdnfonts.com/css/cs-harley');
 @import url('https://fonts.cdnfonts.com/css/svn-gilroy');
+@import url('https://fonts.cdnfonts.com/css/svn-gilroy');
 
 :root{
     --background-white:#FFFFFF;
@@ -21,11 +22,20 @@ a{
     box-sizing: border-box;
 }
 
+/* ------  Preloader------ */
+.spinner {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+  }
+  
+
+
 body{
     background-color: var(--background-white);
     color:var();
-    height: 10000em;
-    font-family: 'SVN-Gilroy', sans-serif;
+    font-family: 'DM Sans', sans-serif;
                                                 
 }
 
@@ -110,7 +120,10 @@ main{
 #search-list{
     width: 70%;
     margin:0 auto;
-    padding: 1em;
+    padding: 1.5em;
+    border-top-left-radius:20px ;
+    border-bottom-left-radius:20px ;
+    border-right: .1px solid var(--cool-blue);
     
     
 }
@@ -126,8 +139,12 @@ main{
 }
 
 .field button{
-    padding: 1em;
+    padding: 1.27em;
     border: none;
+    font-size: 16px;
+    font-weight: 500;
+    border-top-right-radius:20px ;
+    border-bottom-right-radius:20px ;
     outline: none;
     background-color: var(--cool-blue);
     color: var(--background-white);

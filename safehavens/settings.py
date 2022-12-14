@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accounts',
+    'apps.accounts',
+    'apps.main',
+    'apps.Agents',
+    'apps.tenants',
     'fontawesomefree'
     
 ]
@@ -134,3 +137,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # custom user model
 AUTH_USER_MODEL = 'accounts.NewUser'
+
+
+LOGIN_URL = 'accounts/login/'

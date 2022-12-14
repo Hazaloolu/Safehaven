@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  {% comment %} Font awesome link {% endcomment %}
+<script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+<link href="{% static 'fontawesomefree/css/all.min.css' %}"  rel="stylesheet" type="text/css"/>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - CampusHome</title>
+  
+
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+    <!doctype html>
+<html>
+  <head>
+    <title>Registration</title>
+  </head>
+  <body>
+    <header>
+      <h1 class='site-logo'>CampusHome</h1>
+  </header>
+    <main class="formcontainer">
+      <h1>Create an account</h1>
+     <p id='p-1'>Sign up  and access trusted housing options</p>
+      <form class="registrationForm" method="post">
+        {% csrf_token %}
+        {% for field in registration_form %}
+        <p>
+        {% for error in field.errors %}
+        <p class='error-msg'><i class="fa-solid fa-circle-exclamation"></i>  {{ error }}</p>
+        {% endfor %}
+        </p>
+        {% endfor %}
+        {% if registration_form.non_field_errors %}
+        
+          <p class='error-msg'><i class="fa-solid fa-circle-exclamation"></i>{{registration_form.non_field_errors}}</p>
+       
+      
+        {% endif %}
+        <div class="name">
+          <label for="Email">Email</label><br />
+          <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus class='email'>
+        </div>
+      <div class="double-input">
+        <div class="Username">
+          <label for="username">Name</label><br>
+          <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Username" required class="firstName">
+        </div>
+        <div class="PhoneNumber">
+          <label for="phone number">Phone Number</label><br>
+          <input type="tel" name="phone_Number" id="" placeholder='Enter phone number'>
+        </div>
+      </div>
+      <div class="password">
+        <label for="Password">Password</label><br>
+        <input type="password" name="password1" id="inputPassword" class="form-control" placeholder="Password" required class="password">
+      </div>
+      <div class="password" id='hide'>
+        <label for="Password">Confirm Password</label><br>
+        <input type="password" name="password2" id="inputPassword2" class="form-control" placeholder="Confirm password" required class="password">
+      </div>
+      <button type="submit">Register</button>
+      <p>Already have an account <a href="{% url 'login' %}">Log in</a></p>
+     
+    </form>
+  </body>
+</html>
+
+</body>
+</html>

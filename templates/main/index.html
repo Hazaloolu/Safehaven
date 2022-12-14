@@ -1,0 +1,196 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+    {% comment %} Font awesome link {% endcomment %}
+    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+    <link href="{% static 'fontawesomefree/css/all.min.css' %}"  rel="stylesheet" type="text/css"/>
+
+    <title>CampusHome - Home</title>
+</head>
+<body>
+    <div id="preloader"></div>
+    <header>
+       <div class="header-area">
+    
+            <h1 class='site_logo'>CampusHome</h1>
+            <!-- Navigation bar with links to sign in and create account pages -->
+            <nav>
+                <ul>
+                    {% if user.is_superuser %}
+                    <li><a href="admin">Admin</a></li>
+                {% endif %}
+                    <li><a href="{% url 'BecomeAgent' %}">Become an agent</a></li>
+                    
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                    <li class='colored'><a href="{% url 'logout_view' %}">Log out</a></li>
+                    {% else %}
+                    <li><a href="{% url 'login' %}">Sign in</a></li>
+                    <li class='colored'><a href="{% url 'register' %}">Create account</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+       </div>
+    </header>
+
+    <main>
+        {% comment %} ------------ HERO SECTION ---------- {% endcomment %}
+
+        <section class="hero-section">
+             <h1>"Connect with trusted house agents to find your new home on campus"</h1>
+
+              <div class="search-field">
+                <div class="field"><input type="search" name="search" id="search-list"  placeholder='Seach by location or university...'></input><button>Search</button></div>
+              </div>
+
+        </section>
+
+        {% comment %} Recently added accomodations SECTION {% endcomment %}
+
+        <section class="just-added">
+            <h2>Recently added accomodations</h2>
+            <div class="wrapper">
+                    <h2>Popular campuses</h2>
+                {% comment %} popular locations {% endcomment %}
+                <div class="tab">
+                    <button id="defaultOpen" class="tablinks" onclick="openCity(event, 'Ekiti')">FUOYE</button>
+                    <button class="tablinks" onclick="openCity(event, 'abuad')">ABUAD</button>
+                    <button class="tablinks" onclick="openCity(event, 'unilag')">UNILAG</button>
+                    <button class="tablinks" onclick="openCity(event, 'uniilorin')">UNILORIN</button>
+                    <button class="tablinks" onclick="openCity(event, 'funaab')">FUNAAB</button>
+                  </div>
+                  
+                  <div id="Ekiti" class="tabcontent">
+                    <div class="container">
+                        <div class="box">
+                            <img src="{% static 'images/ListedHouse.jpg' %}" alt="">
+                            <h3>Thony Khalyst Hostel</h3>
+                            <p>Hostel | 28 rooms available</p>
+                        </div>
+                        <div class="box">
+                            <img src="{% static 'images/ListedHouse.jpg' %}" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="{% static 'images/ListedHouse.jpg' %}" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="{% static 'images/ListedHouse.jpg' %}" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="{% static 'images/ListedHouse.jpg' %}" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="{% static 'images/ListedHouse.jpg' %}" alt="">
+                        </div>
+                    </div>
+                  </div>
+                  
+                  <div id="abuad" class="tabcontent">
+                    <div class="container">
+                        <div class="box">
+                            <img src="{% static 'images/abuad.jpg' %}" alt="">
+                            <h3>Thony Khalyst Hostel</h3>
+                            <p>Hostel | 28 rooms available</p>
+                        </div>
+                        <div class="box">
+                            <img src="{% static 'images/abuad.jpg' %}" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="{% static 'images/abuad.jpg' %}" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="{% static 'images/abuad.jpg' %}" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="{% static 'images/abuad.jpg' %}" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="{% static 'images/abuad.jpg' %}" alt="">
+                        </div>
+                    </div>
+                  </div>
+                  
+                  <div id="unilag" class="tabcontent">
+                    <div class="container">
+                        <div class="box">
+                            <img src="{% static 'images/unilag.jpg' %}" alt="">
+                            <h3>Thony Khalyst Hostel</h3>
+                            <p>Hostel | 28 rooms available</p>
+                        </div>
+                        <div class="box">
+                            <img src="{% static 'images/unilag.jpg' %}" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="{% static 'images/unilag.jpg' %}" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="{% static 'images/unilag.jpg' %}" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="{% static 'images/unilag.jpg' %}" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="{% static 'images/unilag.jpg' %}" alt="">
+                        </div>
+                    </div>
+                  </div>
+                  
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function openCity(evt, stepName) {
+            // hide all tab content sections
+            document.querySelectorAll('.tabcontent').forEach(function(tab) {
+              tab.style.display = 'none';
+            });
+          
+            // remove the "active" class from all tab links
+            document.querySelectorAll('.tablinks').forEach(function(tab) {
+              tab.classList.remove('active');
+            });
+          
+            // show the tab content with the specified stepName ID
+            document.getElementById(stepName).style.display = 'block';
+          
+            // add the "active" class to the clicked tab link
+            evt.currentTarget.classList.add('active');
+          }
+           // Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+           
+
+//Preloader with spin.js
+
+var opts = {
+    lines: 13, // The number of lines to draw
+    length: 20, // The length of each line
+    width: 10, // The line thickness
+    radius: 30, // The radius of the inner circle
+    corners: 1, // Corner roundness (0..1)
+    rotate: 0, // The rotation offset
+    direction: 1, // 1: clockwise, -1: counterclockwise
+    color: '#000', // #rgb or #rrggbb or array of colors
+    speed: 1, // Rounds per second
+    trail: 60, // Afterglow percentage
+    shadow: false, // Whether to render a shadow
+    hwaccel: false, // Whether to use hardware acceleration
+    className: 'spinner', // The CSS class to assign to the spinner
+    zIndex: 2e9, // The z-index (defaults to 2000000000)
+    top: '50%', // Top position relative to parent
+    left: '50%' // Left position relative to parent
+  };
+  var spinner = new Spinner(opts).spin(document.getElementById('preloader'));
+    </script>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+
+</html>

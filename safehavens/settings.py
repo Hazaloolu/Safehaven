@@ -38,10 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.accounts',
-    'apps.main',
-    'apps.Agents',
-    'apps.tenants',
+    'accounts',
+    'main',
+    'Agents',
+    'tenants',
+    'Accomodation',
     'fontawesomefree'
     
 ]
@@ -127,6 +128,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 
 # Default primary key field type

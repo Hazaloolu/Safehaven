@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusHome - Add Listng</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Add_listing.css' %}">
+
+    {% comment %} Font awesome link {% endcomment %}
+    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+    <link href="{% static 'fontawesomefree/css/all.min.css' %}"  rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <header>
+        <div class="header-area">
+     
+             <h1 class='site_logo'>CampusHome</h1>
+             <!-- Navigation bar with links to sign in and create account pages -->
+             <nav>
+                 <ul>
+                    
+                     
+                    
+                 </ul>
+             </nav>
+        </div>
+     </header>
+     <main>
+        <h1>Add a New Accommodation</h1>
+        <p>Add a new accomodation listing to CampusHome</p>
+
+        
+
+
+        <!-- add accomodation form -->
+
+      <div class="form-container">
+        
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+
+
+     </main>
+
+     <script>
+        const priceInput = document.getElementById('price');
+        priceInput.addEventListener('input', function(event) {
+          const value = event.target.value;
+          event.target.value = value.replace(/\D/g, '').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+        });
+      </script>
+</body>
+</html>

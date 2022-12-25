@@ -1,0 +1,4 @@
+{% for agent in agents %}
+    <p>{{agent.Agent_name}}</p>
+    <img src="{{agent.image.url}}" alt="{{agent.Agent_name}}" width='20%' height='auto'>
+{% endfor %}

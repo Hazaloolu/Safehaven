@@ -1,9 +1,67 @@
+@import url('https://fonts.cdnfonts.com/css/svn-gilroy');
+
+body{
+  font-family: 'SVN-Gilroy', sans-serif;
+                                                
+                                                
+}
+
+button:hover{
+  opacity:.8
+}
+
+#nav{
+  width: 20%;
+  margin-top: 1em;
+ 
+}
+
+.text{
+  text-align: center;
+  padding-top: 3em;
+  line-height: 3em;
+}
+
 .form-container {
-   width: 60%;
+  
     margin: 0 auto;
     padding: 40px;
-    background-color: #f7f7f7;
-    border-radius: 5px;
+  
+  }
+
+  /* first page  */
+  #page-1{
+    width: 60%;
+    margin: 0 auto;
+    padding: 40px;
+  }
+  #page-2{
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px;
+  }
+
+
+
+  #error-message{
+    display: flex;
+    justify-content: space-around;
+    width:100%;
+    height: 3em;
+    color: red;
+    padding:1em;
+ 
+   
+  }
+
+  #close_btn{
+    cursor: pointer;
+    appearance: none;
+    background: none;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
   }
   
   form {
@@ -19,8 +77,8 @@
   
   form label {
     font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 8px;
+    font-weight:bolder;
+    margin-bottom: 2em;
     color: #333;
   }
   
@@ -28,16 +86,24 @@
   form select,
   form textarea {
     width: 100%;
-    height: 36px;
-    padding: 6px 12px;
+    padding: 1em;
     font-size: 14px;
     color: #555;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 4px;
+    margin-bottom: 2em;
+    margin-top: .5em;
+  
+  }
+
+  form input:focus, form select:focus, form:textarea:focus{
+    border:2px solid var()
   }
   
   form textarea {
+    width: 60%;
+    margin: auto;
     height: auto;
     resize: vertical;
     max-height:6em ;
@@ -53,7 +119,10 @@
   
   .btn {
     display: inline-block;
-    padding: 10px 20px;
+    padding: .5em 4em;
+    display: flex;
+    justify-content: right;
+    margin-left: auto;
     font-size: 16px;
     font-weight: 400;
     line-height: 1.42857143;
@@ -81,6 +150,7 @@
     border-color: #00897b;
   }
   
+ 
 
   form .form-group input[type="file"] {
     width: 0.1px;
@@ -117,3 +187,70 @@
     background-color: #f7f7f7;
     border-color: #ccc;
   }
+
+
+  /* image upload styling */
+
+  .upload_div{
+    width: 80%;
+    margin: auto;
+    height: 22em;
+    border: 2px dashed #00897b;;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    position:relative;
+    border-radius: 15px;
+    
+  }
+
+  .smaller-images{
+    display: flex;
+    width: 100%;
+    margin: auto;
+    justify-content: space-between;
+    gap:2em;
+    margin-top:2em;
+  }
+  
+  .img-area{
+    height:20em;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    font-weight: bold;
+  }
+  .upload_img{
+    font-size: 100px;
+   color: #00897b;
+  }
+
+  .upload_btn{
+    width: 90%;
+    border-radius: 4px;
+    margin:  0 auto ;
+    appearance: none;
+    text-align: center;
+    outline: none;
+    border:none;
+  background-color: #00897b; 
+  color: #f7f7f7; 
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+.upload_btn:hover{
+  opacity: .8;
+}
+
+.upload_div img{
+position: absolute;
+top:0;
+left:0;
+width: 100%;
+height: 80%;
+object-fit:cover;
+object-position:center;
+}

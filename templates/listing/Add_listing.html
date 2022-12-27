@@ -20,9 +20,11 @@
      
              <h1 class='site_logo'>CampusHome</h1>
              <!-- Navigation bar with links to sign in and create account pages -->
-             <nav>
+             <nav id='nav'>
                  <ul>
-                    
+
+                  <li><a href="">Dashboard</a></li>
+                  <li class= id='round'><a href=""> <i class="fa-solid fa-user" id='i' > </i><i class="fa-solid fa-caret-down"></i></a></li>
                      
                     
                  </ul>
@@ -30,32 +32,119 @@
         </div>
      </header>
      <main>
-        <h1>Add a New Accommodation</h1>
+        <div class="text">
+          <h1>Add a New Accommodation</h1>
         <p>Add a new accomodation listing to CampusHome</p>
+        </div>
 
         
 
 
         <!-- add accomodation form -->
 
-      <div class="form-container">
         
-        <form method="post" enctype="multipart/form-data">
+        <div class="form-container">
+          <div id="error-message" style='display:none'>
+            <p>Pllease, fill the form before proceeding to the next page</p>
+           <button id='close_btn'>X</button>
+          </div>
+          <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-      </div>
+
+            {% comment %} FIRST FORM PAGE {% endcomment %}
+            <div id="page-1">
+              
+              <label>{{ form.state.label }}</label>
+              {{ form.state }}
+              <br>
+              <label>{{ form.school.label }}</label>
+              {{ form.school }}
+              <br>
+              <label>{{ form.LGA.label }}</label>
+              {{ form.LGA }}
+              <br>
+              <label>{{ form.Hostel_name.label }}</label>
+              {{ form.Hostel_name }}
+              <br>
+              <label>{{ form.price.label }}</label>
+              {{ form.price }}
+              
+              
+              <button type="button" class="btn btn-primary" onclick="showPage(2)">Next</button>
+            </div>
+
+            {% comment %} SECOND FORM PAGE {% endcomment %}
+
+            <div id="page-2" style="display:none;">
+
+              <div class="upload_div">
+                <div class="img-area">
+                  <i class="fa-solid fa-cloud-arrow-up upload_img"></i>
+                  <input type="file" name="image_1" accept='image/*' style='display:none;' class='file group-1'>
+                  <p>upload images of accomodations</p>
+                  <p></p>
+                </div>
+                <button type='button' class='upload_btn'>Select image</button>
+              </div>
+              <br>
+              <div class="smaller-images">
+                <div class="upload_div">
+                  <div class="img-area">
+                    <i class="fa-solid fa-cloud-arrow-up upload_img"></i>
+                    <input type="file" name="image_2" accept='image/*' style='display:none;' class='file'>
+                    <p>upload images of accomodations</p>
+                    <p></p>
+                  </div>
+                  <button type='button' class='upload_btn '>Select image</button>
+                </div>
+                <div class="upload_div">
+                  <div class="img-area">
+                    <i class="fa-solid fa-cloud-arrow-up upload_img"></i>
+                    <input type="file" name="image_3" accept='image/*' style='display:none;' class='file '>
+                    <p>upload images of accomodations</p>
+                    <p></p>
+                  </div>
+                  <button type='button' class='upload_btn'>Select image</button>
+                </div>
+                <div class="upload_div">
+                  <div class="img-area">
+                    <i class="fa-solid fa-cloud-arrow-up upload_img"></i>
+                    <input type="file" name="image_4" accept='image/*' style='display:none;' class='file'>
+                    <p>upload images of accomodations</p>
+                    <p></p>
+                  </div>
+                  <button type='button' class='upload_btn'>Select image</button>
+                </div>
+              </div>
+              <label>{{ form.description.label }}</label>
+              {{ form.description }}
+
+              
+              <br>
+              <button type="button" class="btn btn-secondary" onclick="showPage(1)">Previous</button>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+        </div>
+        
+     
+        
+        <script src="{% static 'script.js' %}"></script> 
+        <script>
+          var closeBtn = document.getElementById('close_btn') 
+var errMsg = document.getElementById('error-message')
+
+// Add a click event listener to the "close" button
+closeBtn.addEventListener('click', function() {
+      // Hide the error message
+ errMsg.style.display = 'none';
+ });
 
 
-     </main>
 
-     <script>
-        const priceInput = document.getElementById('price');
-        priceInput.addEventListener('input', function(event) {
-          const value = event.target.value;
-          event.target.value = value.replace(/\D/g, '').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
-        });
-      </script>
+
+ 
+    
+        </script>
 </body>
 </html>

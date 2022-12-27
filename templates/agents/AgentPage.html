@@ -23,7 +23,7 @@
              <nav>
                  <ul>
                      <li><a href="{% url 'home' %}">Home</a></li>
-                     <li><a href="{% url 'Add_listing' %}?next={% url 'login' %}">Add Listing</a></li>
+                     <li><a href="{% url 'Add_listing' %}">Add Listing</a></li>
                      {% if user.is_authenticated %}
                      <li class='colored'><a href="{% url 'logout_view' %}">Dashboard</a></li>
                      {% else %}

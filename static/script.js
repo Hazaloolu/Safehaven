@@ -63,44 +63,5 @@ function showPage(pageNumber) {
       
           
 
-  // image uploading
-
-  // Get the container element for the image upload buttons and file inputs
-// const imgArea = document.querySelector('.upload_div');
-
-// // Get the list of all file input elements and buttons inside the container element
-// const fileInputs = imgArea.querySelectorAll('.file');
-// const uploadButtons = imgArea.querySelectorAll('.upload_btn');
-
-// // Loop through the file input elements and buttons
-// for (let i = 0; i < fileInputs.length; i++) {
-//   // Get the current file input and button
-//   const inputFile = fileInputs[i];
-//   const selectImageButton = uploadButtons[i];
-
-//   // Set up event listeners for the file input and button
-//   selectImageButton.addEventListener('click', () => inputFile.click());
-//   inputFile.addEventListener('change', () => {
-//     // When a file is selected, read it as a data URL and create an image element
-//     const reader = new FileReader();
-//     reader.onload = () => {
-//       const imgUrl = reader.result;
-//       const img = document.createElement('img');
-//       img.src = imgUrl;
-
-//       // Append the image element to the container element
-//       imgArea.appendChild(img);
-//     };
-//     reader.readAsDataURL(inputFile.files[0]);
-//   });
-// }
 
 
-//uploading image
-
-var uploadBtns = document.querySelector('.upload_btn')
-var InputBtn = document.querySelector('.file')
- 
-uploadBtns.addEventListener('click',function(){
-  InputBtn.click()
-})

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CampusHome - Add Listng</title>
+    <title>CampusHome - Add Listing</title>
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <link rel="stylesheet" href="{% static 'css/Add_listing.css' %}">
 
@@ -82,6 +82,7 @@
                   <i class="fa-solid fa-cloud-arrow-up upload_img"></i>
                   <input type="file" name="image_1" accept='image/*' style='display:none;' class='file group-1'>
                   <p>upload images of accomodations</p>
+                  <p class="caption"></p>
                   <p></p>
                 </div>
                 <button type='button' class='upload_btn'>Select image</button>
@@ -101,6 +102,7 @@
                   <div class="img-area">
                     <i class="fa-solid fa-cloud-arrow-up upload_img"></i>
                     <input type="file" name="image_3" accept='image/*' style='display:none;' class='file '>
+                    {% comment %} <img src="{% static 'images/abuad.jpg' %}" alt=""> {% endcomment %}
                     <p>upload images of accomodations</p>
                     <p></p>
                   </div>
@@ -131,20 +133,41 @@
         
         <script src="{% static 'script.js' %}"></script> 
         <script>
-          var closeBtn = document.getElementById('close_btn') 
-var errMsg = document.getElementById('error-message')
 
-// Add a click event listener to the "close" button
-closeBtn.addEventListener('click', function() {
-      // Hide the error message
- errMsg.style.display = 'none';
- });
+          //close the error message
+              var closeBtn = document.getElementById('close_btn') 
+              var errMsg = document.getElementById('error-message')
 
+                    // Add a click event listener to the "close" button
+                    closeBtn.addEventListener('click', function() {
+                          // Hide the error message
+                    errMsg.style.display = 'none';
+                    });
 
+              
+                    const selectBtn = document.querySelector('.upload_btn')
+                    const inputFile = document.querySelector('.file')
+                    const imgArea = document.querySelector('.img-area')
+                    
+                    selectBtn.addEventListener('click',function(){
+                      inputFile.click()
+                    })
+                    
+                    inputFile.addEventListener('change', function(){
+                      const image = this.files[0]
+                      console.log(image)
+                      const reader = new FileReader();
+                      reader.onload = () =>{
+                        const imgUrl = reader.result
+                        const img = document.createElement('img');
+                        img.src = imgUrl;
+                        img.title = image.name; // set the title attribute to the file name
+                        imgArea.appendChild(img)
+                      }
+                      reader.readAsDataURL(image) 
+                    })
+                    
 
-
- 
-    
         </script>
 </body>
 </html>

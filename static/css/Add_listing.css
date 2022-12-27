@@ -254,3 +254,17 @@ height: 80%;
 object-fit:cover;
 object-position:center;
 }
+
+.img-area img::before {
+  content: attr(title); /* display the title attribute as content */
+  position: absolute; /* position the content absolutely */
+  bottom: 0; /* position the content at the bottom of the image */
+  left: 0; /* position the content at the left of the image */
+  background: rgba(0, 0, 0, 0.5); /* add a semi-transparent black background */
+  color: white; /* set the text color to white */
+  padding: 4px 8px; /* add some padding to the content */
+}
+
+.img-area img:hover::before {
+  display: block; /* show the content when the image is hovered */
+}

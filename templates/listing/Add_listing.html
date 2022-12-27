@@ -144,28 +144,37 @@
                     errMsg.style.display = 'none';
                     });
 
+
+                    
+                const selectBtn = document.querySelectorAll('.upload_btn')
+                const inputFile = document.querySelectorAll('.file')
+                const imgArea = document.querySelectorAll('.img-area')
+
+                selectBtn.forEach((btn, index) => {
+                  btn.addEventListener('click', function() {
+                    inputFile[index].click()
+                  })
+                })
+
+                inputFile.forEach((file, index) => {
+                  file.addEventListener('change', function(){
+                    const image = this.files[0]
+                    console.log(image)
+                    const reader = new FileReader();
+                    reader.onload = () =>{
+                      const imgUrl = reader.result
+                      const img = document.createElement('img');
+                      img.src = imgUrl;
+                      img.title = image.name; // set the title attribute to the file name
+                      imgArea[index].appendChild(img)
+                    }
+                    reader.readAsDataURL(image) 
+                  })
+                })
+
+
               
-                    const selectBtn = document.querySelector('.upload_btn')
-                    const inputFile = document.querySelector('.file')
-                    const imgArea = document.querySelector('.img-area')
-                    
-                    selectBtn.addEventListener('click',function(){
-                      inputFile.click()
-                    })
-                    
-                    inputFile.addEventListener('change', function(){
-                      const image = this.files[0]
-                      console.log(image)
-                      const reader = new FileReader();
-                      reader.onload = () =>{
-                        const imgUrl = reader.result
-                        const img = document.createElement('img');
-                        img.src = imgUrl;
-                        img.title = image.name; // set the title attribute to the file name
-                        imgArea.appendChild(img)
-                      }
-                      reader.readAsDataURL(image) 
-                    })
+              
                     
 
         </script>

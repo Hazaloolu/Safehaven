@@ -268,3 +268,5 @@ object-position:center;
 .img-area img:hover::before {
   display: block; /* show the content when the image is hovered */
 }
+
+

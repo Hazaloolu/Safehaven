@@ -60,8 +60,21 @@ function showPage(pageNumber) {
 }
 
 
+//close the error message
+var closeBtn = document.getElementById('close_btn') 
+var errMsg = document.getElementById('error-message')
+
+      // Add a click event listener to the "close" button
+      closeBtn.addEventListener('click', function() {
+            // Hide the error message
+      errMsg.style.display = 'none';
+      });
+
+
+
+
+
+
       
           
-
-
 

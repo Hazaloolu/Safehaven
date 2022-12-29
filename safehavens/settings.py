@@ -43,8 +43,9 @@ INSTALLED_APPS = [
     'Agents',
     'tenants',
     'Accomodation',
-    'fontawesomefree'
-    
+    'fontawesomefree',
+    # phonenumber-field
+    'phonenumber_field'
 ]
 
 MIDDLEWARE = [

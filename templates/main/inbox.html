@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusHome - inbox</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/inbox.css' %}">
+
+    {% comment %} Font awesome link {% endcomment %}
+    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+    <link href="{% static 'fontawesomefree/css/all.min.css' %}"  rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <header>
+        <div class="header-area">
+     
+             <h1 class='site_logo'>CampusHome</h1>
+             <!-- Navigation bar with links to sign in and create account pages -->
+             <nav>
+                 <ul>
+                     <li class><a href="{% url 'home' %}" >Home</a></li>
+                     <li class='colored'><a href="{% url 'Add_listing' %}" ><i class="fa-solid fa-plus "></i> Add Listing</a></li>
+                     <li class= id='round'><a href=""> <i class="fa-solid fa-user" id='i' > </i><i class="fa-solid fa-caret-down"></i></a></li>
+                     
+                    
+                 </ul>
+             </nav>
+        </div>
+     </header>
+     <main>
+        <div class="accomodation-container">
+            <h3>Listed Accomodations</h3>
+
+
+            
+            {% for accomodations in accomodations  %}
+             <div class="wrapper">
+                <p>{{accomodations.id}}</p>
+
+                <div class="listed">
+                
+                
+                    <img src="{{accomodations.image_1.url}}" alt="{{agent.Agent_name}}" width='22%' height='150px'>
+    
+                <p>{{accomodations.Hostel_name}}</p>
+                <p>{{accomodations.school}}</p>
+                <p>{{accomodations.state}}</p>
+    
+                <a href="{% url 'listed' accomodations.id %}" class="btn btn-primary btn-block"
+                    >View Details</a
+                  >
+        
+                
+                </div>
+             </div>
+                
+            {% endfor %}
+
+
+           
+        </div>
+     </main>
+</body>
+</html>

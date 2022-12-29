@@ -45,10 +45,10 @@ function showPage(pageNumber) {
     var school = form.school.value;
     var LGA = form.LGA.value;
     var hostel_name = form.Hostel_name.value;
-    var price = form.price.value;
+    var address = form.Address.value;
 
     // Display error message if any of the required fields are empty
-    if (!state || !school || !LGA || !hostel_name || !price) {
+    if (!state || !school || !LGA || !hostel_name || !address) {
       document.getElementById('error-message').style.display = 'flex';
       return;
     }

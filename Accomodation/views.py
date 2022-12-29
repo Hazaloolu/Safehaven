@@ -1,6 +1,7 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .forms import AccomodationForm
+from Accomodation.models import Accomodation
 
 # Create your views here.
 
@@ -17,3 +18,12 @@ def Add_listing(request):
     return render(request, 'listing/add_listing.html', {'form': form})
 
   
+# views to view each listings based on the listing_id
+def listed(request, listing_id):
+    listing = get_object_or_404(Accomodation, pk=listing_id)
+    
+    
+    context = {'listing':listing}
+    
+    return render(request,'listing/listed.html',context)
+    

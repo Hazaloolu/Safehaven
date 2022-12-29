@@ -102,14 +102,30 @@ button:hover{
   }
   
   form textarea {
-    width: 60%;
-    margin: auto;
+   
+    width: 80%;
     height: auto;
-    resize: vertical;
+    resize: none;
     max-height:6em ;
-    min-height:6em ;
+    max-height:6em ;
+    
+
   }
 
+  #desc{
+   
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    height: auto;
+    margin: auto;
+    align-items: center;
+    margin-top: 4em;
+  }
+
+  #desc label{
+    padding: 2em;
+  }
 
   
   .form-actions {
@@ -121,8 +137,7 @@ button:hover{
     display: inline-block;
     padding: .5em 4em;
     display: flex;
-    justify-content: right;
-    margin-left: auto;
+    
     font-size: 16px;
     font-weight: 400;
     line-height: 1.42857143;
@@ -149,6 +164,27 @@ button:hover{
     background-color: #00897b;
     border-color: #00897b;
   }
+
+  .right-btn{
+    margin-left: auto;
+  }
+  
+   .icon{
+    padding-left: 1em;
+    font-size: 20px;
+
+  }
+
+  .icon-left{
+  padding-right: 1em;
+  }
+  
+  #left-btn{
+    
+    display: flex;
+    justify-content: left;
+  }
+  
   
  
 
@@ -215,7 +251,7 @@ button:hover{
   }
   
   .img-area{
-    height:20em;
+    height:24em;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -267,6 +303,15 @@ object-position:center;
 
 .img-area img:hover::before {
   display: block; /* show the content when the image is hovered */
+}
+
+
+.btn-con{
+  width: 100%;
+  margin-top: 3em;
+  display: flex;
+  justify-content: space-around;
+ 
 }
 
 

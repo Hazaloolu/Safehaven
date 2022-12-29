@@ -5,7 +5,7 @@ from django.core.validators import FileExtensionValidator
 class AccomodationForm(forms.ModelForm):
     class Meta:
         model = Accomodation
-        fields = ['state','school','price','Hostel_name','LGA','image_1','image_2','image_3','image_4','description']
+        fields = ['state','school','Address','price','Hostel_name','LGA','image_1','image_2','image_3','image_4','description']
         
         field_kwargs = {
             'image_1': {'validators': [FileExtensionValidator(allowed_extensions=['png','jpeg','jpg'])]},

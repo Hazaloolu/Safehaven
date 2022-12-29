@@ -1,0 +1,66 @@
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{listing.Hostel_name}}</title>
+  <link rel="stylesheet" href="{% static 'css/listed.css' %}">
+   {% comment %} Font awesome link {% endcomment %}
+   <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+   <link href="{% static 'fontawesomefree/css/all.min.css' %}"  rel="stylesheet" type="text/css"/>
+</head>
+<body>
+  
+
+    <header>
+      <a href="{% url 'inbox' %}"><i class="fa-solid fa-arrow-left icon-left"></i>Back to Listing</a>
+    </header>
+     <main>
+      <div class="wrapper">
+        <div class="listing-details">
+          <h2>{{listing.Hostel_name}} - <span> {{listing.school}}</span>
+          </h2>
+          <img src="{{listing.image_1.url}}" alt="{{Hostel_name}}" id='preferred-image'>
+          <div class="smaller-images">
+            <img src="{{listing.image_2.url}}" alt="{{Hostel_name}}" >
+            <img src="{{listing.image_3.url}}" alt="{{Hostel_name}}">
+            <img src="{{listing.image_4.url}}" alt="{{Hostel_name}}" >
+          </div>
+
+           <div class="flex-container">
+                    <div class="flex-item">
+                      <p class='bold-text'><i class="fa-solid fa-money-bill"></i> Accomodation price: </p>\
+                      <p>&#x20A6;{{listing.price}}</p>
+                    </div>
+                    <div class="flex-item">
+                      <p class='bold-text'>School: </p>
+                      <p>{{listing.school}}</p>
+                    </div>
+                    <div class="flex-item">
+                      <p class='bold-text'><i class="fa-solid fa-location-dot"></i> Location: </p>
+                      <p>{{listing.state}} | {{listing.LGA}}</p>
+                    </div>
+                    <div class="flex-item">
+                      <p class='bold-text'><i class="fa-solid fa-address-card"></i> Address: </p>
+                      <p>{{listing.Address}}</p>
+                    </div>
+           </div>
+           <div class="flex-item">
+            <p>Description: </p>
+            <p class='align-center'>{{listing.description}}</p>
+           </div>
+        </div>
+        <div class="agent-details">
+            <h2>Agent Details</h2>
+            {{listing.state}}
+          
+        </div>
+      </div>
+     </main>
+  
+</body>
+</html>

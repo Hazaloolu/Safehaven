@@ -23,7 +23,7 @@
              <nav id='nav'>
                  <ul>
 
-                  <li><a href="">Dashboard</a></li>
+                  <li><a href="{% url 'inbox' %}">Dashboard</a></li>
                   <li class= id='round'><a href=""> <i class="fa-solid fa-user" id='i' > </i><i class="fa-solid fa-caret-down"></i></a></li>
                      
                     
@@ -45,7 +45,7 @@
         
         <div class="form-container">
           <div id="error-message" style='display:none'>
-            <p>Pllease, fill the form before proceeding to the next page</p>
+            <p>Pllease, fill the form correctly before proceeding to the next page</p>
            <button id='close_btn'>X</button>
           </div>
           <form method="post" enctype="multipart/form-data">
@@ -66,21 +66,25 @@
               <label>{{ form.Hostel_name.label }}</label>
               {{ form.Hostel_name }}
               <br>
-              <label>{{ form.price.label }}</label>
-              {{ form.price }}
+              <label>{{ form.Address.label }}</label>
+              {{ form.Address }}
               
               
-              <button type="button" class="btn btn-primary" onclick="showPage(2)">Next</button>
+              
+              <button type="button" class="btn btn-primary right-btn"  onclick="showPage(2)">Next<i class="fa-solid fa-arrow-right icon"></i></button>
             </div>
+            
 
             {% comment %} SECOND FORM PAGE {% endcomment %}
 
             <div id="page-2" style="display:none;">
+              <label>{{ form.price.label }}</label>
+              {{ form.price }}
 
               <div class="upload_div">
                 <div class="img-area">
                   <i class="fa-solid fa-cloud-arrow-up upload_img"></i>
-                  <input type="file" name="image_1" accept='image/*' style='display:none;' class='file group-1'>
+                  <input type="file" name="image_1" accept='image/*' style='display:none;' class='file group-1' >
                   <p>upload images of accomodations</p>
                   <p class="caption"></p>
                   <p></p>
@@ -92,7 +96,7 @@
                 <div class="upload_div">
                   <div class="img-area">
                     <i class="fa-solid fa-cloud-arrow-up upload_img"></i>
-                    <input type="file" name="image_2" accept='image/*' style='display:none;' class='file'>
+                    <input type="file" name="image_2" accept='image/*' style='display:none;' class='file' 
                     <p>upload images of accomodations</p>
                     <p></p>
                   </div>
@@ -101,7 +105,7 @@
                 <div class="upload_div">
                   <div class="img-area">
                     <i class="fa-solid fa-cloud-arrow-up upload_img"></i>
-                    <input type="file" name="image_3" accept='image/*' style='display:none;' class='file '>
+                    <input type="file" name="image_3" accept='image/*' style='display:none;' class='file ' >
                     {% comment %} <img src="{% static 'images/abuad.jpg' %}" alt=""> {% endcomment %}
                     <p>upload images of accomodations</p>
                     <p></p>
@@ -111,20 +115,24 @@
                 <div class="upload_div">
                   <div class="img-area">
                     <i class="fa-solid fa-cloud-arrow-up upload_img"></i>
-                    <input type="file" name="image_4" accept='image/*' style='display:none;' class='file'>
+                    <input type="file" name="image_4" accept='image/*' style='display:none;' class='file' >
                     <p>upload images of accomodations</p>
                     <p></p>
                   </div>
                   <button type='button' class='upload_btn'>Select image</button>
                 </div>
               </div>
-              <label>{{ form.description.label }}</label>
+              <div id='desc'>
+                <label>{{ form.description.label }}</label>
               {{ form.description }}
+              </div>
 
               
               <br>
-              <button type="button" class="btn btn-secondary" onclick="showPage(1)">Previous</button>
+              <div class="btn-con">
+                <button type="button" class="btn btn-secondary " id='left-btn' onclick="showPage(1)"><i class="fa-solid fa-arrow-left icon-left"></i>Previous</button>
               <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
             </div>
           </form>
         </div>
@@ -171,6 +179,11 @@
                     reader.readAsDataURL(image) 
                   })
                 })
+
+
+
+                //check if image field is empty and raise error
+                // Select all the img elements on the pa
 
 
               

@@ -15,5 +15,3 @@ def BecomeAgent(request):
     return render(request, 'agents/AgentPage.html')
 
 
-def Agents_dashboard(request):
-    return render(request, 'agents/inbox.html')

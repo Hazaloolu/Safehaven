@@ -1,5 +1,8 @@
 from django.db import models
+
+from Agents.models import Agent
 from datetime import datetime
+
 # Create your models here.
 
 class Accomodation(models.Model):
@@ -45,7 +48,7 @@ class Accomodation(models.Model):
     ('Federal_Capital_Territory','Federal Capital Territory')
 ]
 
- 
+    Agent =  models.ForeignKey(Agent, on_delete=models.DO_NOTHING,blank=True, null=True)
     state=models.CharField(max_length=30, choices=STATE_CHOICES)
     school = models.CharField(max_length=70)
     price=models.DecimalField( max_digits=8, decimal_places=2)
@@ -58,7 +61,10 @@ class Accomodation(models.Model):
     image_4 = models.ImageField(upload_to='images/')
     description = models.TextField()
     date_time_uploaded = models.DateTimeField(default=datetime.now, blank=True)
+    id = models.AutoField(primary_key=True)
     
     def __str__(self):
         return self.Hostel_name + ' / ' + self.school 
-    
+
+
+

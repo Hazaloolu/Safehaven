@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{% static 'css/AgentPage.css' %}">
 </head>
 <body>
+    
 
     <header>
         <div class="header-area">
@@ -23,9 +24,9 @@
              <nav>
                  <ul>
                      <li><a href="{% url 'home' %}">Home</a></li>
-                     <li><a href="{% url 'Add_listing' %}">Add Listing</a></li>
+                     <li><a href="{% url 'Agent_details' %}">Add Listing</a></li>
                      {% if user.is_authenticated %}
-                     <li class='colored'><a href="{% url 'logout_view' %}">Dashboard</a></li>
+                     <li class='colored'><a href="{% url 'inbox' %}">Dashboard</a></li>
                      {% else %}
                      <li class='colored'><a href="{% url 'register' %}">Create account</a></li>
                      {% endif %}
@@ -45,6 +46,20 @@
             </div>
             
         </section>
+
+        
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
      </main>
 
      

@@ -6,16 +6,27 @@
 
 
 .accomodation-container{
-    width: 95%;
+    width: 98%;
     margin: auto;
     padding: 3em;
+    background-color:
+    
+    
+    ;
 }
 
+.wrapper{
+    margin-top: 5em;
+}
+.out_p{
+    padding: 2em;
+    font-size: 20px;
+}
 .accomodation-container h3{
     font-size: 22px;
     border-bottom: 3px solid var(--black);
     letter-spacing: .5px;
-    margin-bottom: 4em;
+    margin-bottom: 2em;
     width: 22%;
 }
 
@@ -63,4 +74,48 @@ a:hover{
 .wrapper p{
     display: flex;
     align-items: center;
+}
+
+
+button{
+    background:none;
+    border: none;
+    color:#ce2029;
+    cursor: pointer;
+    outline: none;
+
+}
+.w3-modal-content{
+    width: 50%;
+    text-align: center;
+    line-height: 6em;
+    margin-top: 10em;
+
+}
+
+.w3-container p{
+    
+   font-size: 18px;
+}
+.red{
+  color: #ce2029;
+  font-weight: bold;
+}
+
+.btn-container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.colored{
+    color: var(--cool-blue);
+    padding: ;
+    font-weight: bold;
+    appearance: none;
+    border: none;
+    outline:none;
+   
+}
+span{
+    font-weight: bold;
 }

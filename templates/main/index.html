@@ -28,7 +28,7 @@
                     <li><a href="{% url 'BecomeAgent' %}">Become an agent</a></li>
                     
                     {% if user.is_authenticated %}
-                    <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                    <li><a href="{% url 'inbox' %}">Dashboard</a></li>
                     <li class='colored'><a href="{% url 'logout_view' %}">Log out</a></li>
                     {% else %}
                     <li><a href="{% url 'login' %}">Sign in</a></li>

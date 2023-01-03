@@ -5,6 +5,7 @@ from accounts.models import NewUser
 from Agents.models import Agent
 from Accomodation.models import Accomodation
 
+import cloudinary
 # Create your views here.
 
 
@@ -37,6 +38,9 @@ def Add_listing(request):
 
 def delete_listing(request,listing_id):
     listing=Accomodation.objects.get(id=listing_id)
+    
+    # delete the image from cloudinary
+    # cloudinary.api.delete_resources([listing.image_public_id])
     
     # delete the listing
     

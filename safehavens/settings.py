@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
-
+import cloudinary_storage
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'Accomodation',
     'fontawesomefree',
     # phonenumber-field
-    'phonenumber_field'
+    'phonenumber_field',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -146,3 +147,11 @@ AUTH_USER_MODEL = 'accounts.NewUser'
 
 
 LOGIN_URL = 'accounts/login/'
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dvlgaa5hn',
+    'API_KEY': '275833213953946',
+    'API_SECRET': 'IyyMc_m3oozekoCvW93vtm8yHe0',
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'

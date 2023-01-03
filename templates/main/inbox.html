@@ -1,86 +1,97 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CampusHome - inbox</title>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
-    <link rel="stylesheet" href="{% static 'css/inbox.css' %}">
     
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/inbox.css' %}" />
 
     {% comment %} Font awesome link {% endcomment %}
     <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
-    <link href="{% static 'fontawesomefree/css/all.min.css' %}"  rel="stylesheet" type="text/css"/>
-</head>
-<body>
+    <link
+      href="{% static 'fontawesomefree/css/all.min.css' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
     <header>
-        <div class="header-area">
-     
-             <h1 class='site_logo'>CampusHome</h1>
-             <!-- Navigation bar with links to sign in and create account pages -->
-             <nav>
-                 <ul>
-                     <li class><a href="{% url 'home' %}" >Home</a></li>
-                     <li class='colored'><a href="{% url 'Agent_details' %}" ><i class="fa-solid fa-plus "></i> Add Listing</a></li>
-                     <li class= id='round'><a href=""> <i class="fa-solid fa-user" id='i' > </i><i class="fa-solid fa-caret-down"></i></a></li>
-                     
-                    
-                 </ul>
-             </nav>
+      <div class="header-area">
+        <h1 class="site_logo">CampusHome</h1>
+        <!-- Navigation bar with links to sign in and create account pages -->
+        <nav>
+          <ul>
+            <li class><a href="{% url 'home' %}">Home</a></li>
+            <li class="colored">
+              <a href="{% url 'Agent_details' %}"
+                ><i class="fa-solid fa-plus"></i> Add Listing</a
+              >
+            </li>
+            <li class="id" ="round">
+              <a href="">
+                <i class="fa-solid fa-user" id="i"> </i
+                ><i class="fa-solid fa-caret-down"></i
+              ></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="accomodation-container">
+        <h1>Listed Accomodations</h1>
+
+        <p class="acco-p">
+          You have a total of <span>{{total_listing}}</span> Listing(s)
+        </p>
+
+        {% for accomodations in accomodations %}
+        <div class="wrapper">
+          <p class="out_p">{{accomodations.id}}</p>
+
+          <div class="listed">
+            <img
+              src="{{accomodations.image_1.url}}"
+              alt="{{agent.Agent_name}}"
+              width="22%"
+              height="150px"
+            />
+            <p>{{accomodations.Hostel_name}}</p>
+            <p>{{accomodations.school}}</p>
+            <p>{{accomodations.state}}</p>
+            <a href="{% url 'listed' accomodations.id %}">View Details</a>
+          </div>
+          <button onclick="document.getElementById('id01').style.display='block'" ><i class="fa-solid fa-trash out_p"></i></button>
         </div>
-     </header>
-     <main>
-        <div class="accomodation-container">
-            <h3>Listed Accomodations</h3>
+        
+        {% endfor %}
+        
+        {% for accomodations  in accomodations  %}
+        <div id="id01" class="w3-modal" >
+          <div class="w3-modal-content">
+            <div class="w3-container">
+              <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
            
-            <h5>You have a total of <span>{{total_listing}}</span> Listing(s)</h5>
-
-            
-            {% for accomodations in accomodations  %}
-             <div class="wrapper">
-                <p class='out_p'>*</p>
-
-                <div class="listed">
-                
-                
-                    <img src="{{accomodations.image_1.url}}" alt="{{agent.Agent_name}}" width='22%' height='150px'>
-    
-                <p>{{accomodations.Hostel_name}}</p>
-                <p>{{accomodations.school}}</p>
-                <p>{{accomodations.state}}</p>
-    
-                <a href="{% url 'listed' accomodations.id %}" class="btn btn-primary btn-block"
-                    >View Details</a
-                  >
-                </div>
-                <button onclick="document.getElementById('id01').style.display='block'" ><i class="fa-solid fa-trash out_p"></i></button>
-
-             </div>
-             <div id="id01" class="w3-modal">
-              <div class="w3-modal-content">
-                <div class="w3-container">
-                  <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-               
-                   <p>Are you sure you want to delete this listing?</p>
-                  
-                  <div class="btn-container">
-                    <button ><a href="{% url 'delete_listing' accomodations.id %}" class='red'>Yes,delete</a></button>
-                  <button onclick="document.getElementById('id01').style.display='none'" class="colored">No</button>
-                  
-                  </div>
-                </div>
-            
-            
+               <p>Are you sure you want to delete this listing?</p>
+              
+              <div class="btn-container">
+                <button ><a href="{% url 'delete_listing' accomodations.id %}" class='red'>Yes,delete</a></button>
+              <button onclick="document.getElementById('id01').style.display='none'" class="colored">cancel</button>
+              
             </div>
-            {% endfor %}
-            
-
-
-           
+          </div>
+        
+        
         </div>
-     </main>
-</body>
+        {% endfor %}
+          
+      </div>
+    </main>
+  </body>
 </html>

@@ -22,7 +22,7 @@
      <main>
       <div class="wrapper">
         <div class="listing-details">
-          <h2>{{listing.Hostel_name}} - <span> {{listing.school}}</span>
+          {% comment %} <h2>{{listing.Hostel_name}} - <span> {{listing.school}}</span> {% endcomment %}
           </h2>
           <img src="{{listing.image_1.url}}" alt="{{Hostel_name}}" id='preferred-image'>
           <div class="smaller-images">
@@ -33,7 +33,7 @@
 
            <div class="flex-container">
                     <div class="flex-item">
-                      <p class='bold-text'><i class="fa-solid fa-money-bill"></i> Accomodation price: </p>\
+                      <p class='bold-text'><i class="fa-solid fa-money-bill"></i> Accomodation price: </p>ED
                       <p>&#x20A6;{{listing.price}}</p>
                     </div>
                     <div class="flex-item">
@@ -55,12 +55,19 @@
            </div>
         </div>
         <div class="agent-details">
-            <h2>Agent Details</h2>
-            {{listing.Agent.state}} <br>
-            {{listing.Agent.name}} <br>
-            {{listing.Agent.phone_number}}
-            <img src="{{listing.Agent.profile_image.url}}" alt="Agent_picture">
-            
+            <h3>Agent Details</h3>
+            <div class="flex">
+              <div class="first-details">
+                <img src="{{listing.Agent.profile_image.url}}" alt="Agent_picture">
+                <p>{{listing.Agent.name}} </p>
+              </div>
+              <div class="details">
+                {{listing.Agent.state}} <br>
+              
+              {{listing.Agent.phone_number}}
+              </div>
+            </div>
+           
           
         </div>
       </div>

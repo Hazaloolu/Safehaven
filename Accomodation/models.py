@@ -62,6 +62,7 @@ class Accomodation(models.Model):
     description = models.TextField()
     date_time_uploaded = models.DateTimeField(default=datetime.now, blank=True)
     id = models.AutoField(primary_key=True)
+    image_public_id = models.CharField(max_length=255)
     
     def __str__(self):
         if self.Agent:

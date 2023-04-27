@@ -1,0 +1,54 @@
+main{
+    padding-top: 10%;
+}
+
+h2,p{
+    text-align: center;
+    line-height:2em;
+}
+
+form{
+    
+    width: 40%;
+    
+    margin: auto;
+    margin-top: 2% ;
+}
+
+input,select{
+    width: 100%;
+    margin: auto;
+    padding: 1em;
+    margin-bottom: 2em;
+}
+
+form label{
+    line-height: 2em;
+}
+
+form button{
+    width: 40%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    padding: 1em ;
+    outline: none;
+    border: none;
+    background: none;
+    color: #FFFFFF;;
+    background-color: #00897b;;
+}
+
+main ul{
+    width:38%;
+    margin: auto;
+    margin-top: 2em;
+}
+
+main ul li{
+    opacity: .7;
+}
+
+input[type=number]::-webkit-inner-spin-button { 
+    display: none;
+}

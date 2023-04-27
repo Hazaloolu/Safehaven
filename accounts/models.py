@@ -34,8 +34,7 @@ class MyAccountManager(BaseUserManager):
 
 class NewUser(AbstractBaseUser):
     email = models.EmailField(verbose_name="email", max_length=60, unique=True)
-    username = models.CharField(max_length=30, unique=True)
-    phone_Number = models.CharField(max_length=11)
+    username = models.CharField(max_length=30)
     date_joined = models.DateTimeField(auto_now_add=True)
     
     # profile_pic = models.ImageField(null=True, blank=True)
@@ -43,25 +42,27 @@ class NewUser(AbstractBaseUser):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
-    
+    is_Agent = models.BooleanField(default=False)
+    is_email_verified = models.BooleanField(default = False)
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username']
+    
+    
+    REQUIRED_FIELDS = ['username,email']
 
     objects = MyAccountManager()
 
     def __str__(self):
         return self.username
     
+    # For checking permissions
+    # all admins have all permission
     
-    def __str__(self):
-        return self.username
-
-    # For checking permissions. to keep it simple all admin have ALL permissons
-    def has_perm(self, perm, obj=None):
+    def has_perm(self,perm, obj=None):
         return self.is_admin
-
-    # Does this user have permission to view this app? (ALWAYS YES FOR SIMPLICITY)
+    
     def has_module_perms(self, app_label):
         return True
+    
+
 
 

@@ -11,7 +11,7 @@ button:hover{
 }
 
 #nav{
-  width: 20%;
+ 
   margin-top: 1em;
  
 }
@@ -41,7 +41,14 @@ button:hover{
     padding: 40px;
   }
 
+  input[type='number'] {
+    -moz-appearance:textfield;
+}
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
 
   #error-message{
     display: flex;

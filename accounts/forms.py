@@ -11,7 +11,7 @@ class RegistrationForm(UserCreationForm):
 
     class Meta:
         model = NewUser
-        fields = ('email','username' ,'phone_Number','password1', 'password2', )
+        fields = ('email','username','password1', 'password2', )
 
     def clean_email(self):
         
@@ -24,7 +24,8 @@ class RegistrationForm(UserCreationForm):
         # If a user with the same email already exists
         # Return validation error
         if email_exists:
-            raise forms.ValidationError('User with the same email address "%s" already exists..'%email)
+            raise forms.ValidationError(' A User with the email "%s" aleady exists..'%email)
+           
             
         
         # if the email address is valid
@@ -44,7 +45,7 @@ class RegistrationForm(UserCreationForm):
             # raise validation error
             
         if username_exists:
-            raise forms.ValidationError(' A User with the username "%s" aleady exists..'%username)
+            return username
         
         # if the username is valid
         # return the email
@@ -56,24 +57,3 @@ class RegistrationForm(UserCreationForm):
             
                 
 
-
-# # Define a LoginForm class that extends the forms.Form class
-# class LoginForm(forms.Form):
-#     # Define the 'email' field
-#     email = forms.EmailField(
-#         # Set the maximum length of the field to 255 characters
-#         max_length=255,
-#         # Set the field to be required
-#         required=True,
-#         # Use the EmailInput widget to render the field
-#         widget=forms.EmailInput(attrs={'class': 'form-control'})
-#     )
-#     # Define the 'password' field
-#     password = forms.CharField(
-#         # Set the maximum length of the field to 255 characters
-#         max_length=255,
-#         # Set the field to be required
-#         required=True,
-#         # Use the PasswordInput widget to render the field
-#         widget=forms.PasswordInput(attrs={'class': 'form-control'})
-#     )

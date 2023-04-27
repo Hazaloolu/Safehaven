@@ -34,26 +34,47 @@
               >
             </li>
             <li class="id" ="round">
-              <a href="">
-                <i class="fa-solid fa-user" id="i"> </i
-                ><i class="fa-solid fa-caret-down"></i
-              ></a>
+              
+               <button type=''  id='show'> <i class="fa-solid fa-user" id="i"></i
+                ></button> <i class="fa-solid fa-caret-down"></i
+              >
             </li>
           </ul>
         </nav>
+       
+      </div>
+      <div class="profile-card">
+        <ul>
+          <li><a href="{% url 'Agent_details' %}">Add Listing</a></li>
+          <li><a href="{% url 'dashboard' %}">Tenants Dashboard</a></li>
+          <li><a href="">My Account</a></li>
+          <li><a href="">Privacy policy</a></li>
+          <li><a href="{% url 'logout_view' %}">Logout</a></li>
+
+          
+        </ul>
       </div>
     </header>
     <main>
       <div class="accomodation-container">
         <h1>Listed Accomodations</h1>
 
+        {% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+
         <p class="acco-p">
           You have a total of <span>{{total_listing}}</span> Listing(s)
         </p>
 
-        {% for accomodations in accomodations %}
+        {% for accomodations in page_obj %}
         <div class="wrapper">
-          <p class="out_p">{{accomodations.id}}</p>
+          <p class="out_p"></p>
 
           <div class="listed">
             <img
@@ -71,6 +92,30 @@
         </div>
         
         {% endfor %}
+
+        <div class="pagination">
+          <span class="step-links">
+              <span>
+                {% if page_obj.has_previous %}
+                  
+                  <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+              {% endif %}
+              </span>
+      
+              <span class="current">
+                  Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+              </span>
+              <span>
+                
+              {% if page_obj.has_next %}
+              <a href="?page={{ page_obj.next_page_number }}">Next</a>
+            
+          {% endif %}
+              </span>
+      
+          </span>
+      </div>
+
         
         {% for accomodations  in accomodations  %}
         <div id="id01" class="w3-modal" >
@@ -81,8 +126,9 @@
                <p>Are you sure you want to delete this listing?</p>
               
               <div class="btn-container">
+                <button onclick="document.getElementById('id01').style.display='none'" class="colored">cancel</button>
                 <button ><a href="{% url 'delete_listing' accomodations.id %}" class='red'>Yes,delete</a></button>
-              <button onclick="document.getElementById('id01').style.display='none'" class="colored">cancel</button>
+              
               
             </div>
           </div>
@@ -91,7 +137,30 @@
         </div>
         {% endfor %}
           
-      </div>
+      </div
+
+
     </main>
+    <script>
+
+      // nav bar profile card display
+
+var card = document.querySelector('.profile-card');
+card.style.display = 'none';
+
+var showButton = document.querySelector('#show');
+showButton.addEventListener('click', function () {
+  if (card.style.display === 'none') {
+    card.style.display = 'block';
+    card.classList.add('fade-in');
+  } else {
+    card.style.display = 'none';
+    card.classList.remove('fade-in');
+  }
+});
+
+  
+      
+    </script>
   </body>
 </html>

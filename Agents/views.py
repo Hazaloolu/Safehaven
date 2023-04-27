@@ -5,7 +5,7 @@ from accounts.models import NewUser
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-
+# Collect the details of new agent and Regsister them
 @login_required(login_url='login')
 def collectAgentDetails(request):
     # try to get the Agent instance associated with the current user
@@ -24,6 +24,8 @@ def collectAgentDetails(request):
         
         # save to database
         agent.save()
+        return redirect('Agent_details')
+        
         
     # if agent.form_filled = True
     if agent.form_filled:
@@ -60,6 +62,7 @@ def collectAgentDetails(request):
     
     # render the template with the context
     return render(request, 'agents/agents.html', context)
+
 
         
 

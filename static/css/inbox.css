@@ -1,86 +1,125 @@
 @import url('https://fonts.cdnfonts.com/css/sofia-pro');
 
-:root{
-    --background-white:#FFFFFF;
-    --cool-blue:#00897b;
-    --black:#303030;
+:root {
+    --background-white: #FFFFFF;
+    --cool-blue: #00897b;
+    --black: #303030;
 }
 
-body{
+body {
     font-family: 'Sofia Pro', sans-serif;
-                                                
+
 }
 
-.accomodation-container{
+#show {
+    font-size: 25px;
+    color: var(--black);
+}
+
+/* profile card styling */
+.profile-card {
+    position: absolute;
+    right: 3em;
+    top: 8em;
+    background-color: var(--background-white);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1),
+        -2px -2px 2px rgba(0, 0, 0, 0.1),
+        2px -2px 2px rgba(0, 0, 0, 0.1),
+        -2px 2px 2px rgba(0, 0, 0, 0.1);
+    width: 20%;
+    z-index: 999999999;
+    display: none;
+    opacity: 0;
+    transition: opacity 1s;
+
+
+
+}
+
+.profile-card.fade-in {
+    opacity: 1;
+}
+
+.profile-card ul {
+    list-style: none;
+    text-align: center;
+    padding: 2em;
+    line-height: 4em;
+}
+
+.accomodation-container {
     width: 98%;
     margin: auto;
     padding: 3em;
     background-color:
-    
-    
+
+
     ;
 }
 
-.wrapper{
+.wrapper {
     margin-top: 5em;
     font-family: 'Sofia Pro', sans-serif;
 }
-.out_p{
+
+.out_p {
     padding: 2em;
     font-size: 20px;
     font-family: 'Sofia Pro', sans-serif;
 }
-.accomodation-container h1{
+
+.accomodation-container h1 {
     font-size: 22px;
-    border-bottom: 3px solid var(--black); 
-     letter-spacing: .5px;
+    border-bottom: 3px solid var(--black);
+    letter-spacing: .5px;
     margin-bottom: 2em;
     width: 20%;
     font-family: 'Sofia Pro', sans-serif;
 }
-.acco-p{
+
+.acco-p {
     font-size: 18px;
 }
-.accomodation-container span{
+
+.accomodation-container span {
     font-weight: bold;
 }
 
 .listed {
     width: 97%;
-    margin-bottom: em;
     border-radius: 15px;
     padding: .9em;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1), 
-                -2px -2px 2px rgba(0, 0, 0, 0.1), 
-                2px -2px 2px rgba(0, 0, 0, 0.1), 
-                -2px 2px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1),
+        -1px -1px 1px rgba(0, 0, 0, 0.1),
+        1px -1px 1px rgba(0, 0, 0, 0.1),
+        -1px 1px 1px rgba(0, 0, 0, 0.1);
 
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-family: 'Sofia Pro', sans-serif;
-  }
-  
-  
+}
 
-.listed p{
+
+
+.listed p {
     text-transform: capitalize;
 }
 
-.listed a{
-    background-color: var(--cool-blue) ;
-    padding:.5em 2em;
+.listed a {
+    background-color: var(--cool-blue);
+    padding: .5em 2em;
     border-radius: 14px;
     color: var(--background-white);
 }
 
-a:hover{
+a:hover {
     opacity: .8;
 }
 
 
 
-.wrapper{
+.wrapper {
     display: flex;
     justify-content: space-between;
 }
@@ -88,15 +127,16 @@ a:hover{
 
 
 
-button{
-    background:none;
+button {
+    background: none;
     border: none;
-    color:#ce2029;
+    color: #ce2029;
     cursor: pointer;
     outline: none;
 
 }
-.w3-modal-content{
+
+.w3-modal-content {
     width: 50%;
     text-align: center;
     line-height: 6em;
@@ -104,26 +144,43 @@ button{
 
 }
 
-.w3-container p{
-    
-   font-size: 18px;
-}
-.red{
-  color: #ce2029;
-  font-weight: bold;
+.w3-container p {
+
+    font-size: 18px;
 }
 
-.btn-container{
+.red {
+    color: #ce2029;
+    font-weight: bold;
+}
+
+.btn-container {
     display: flex;
     justify-content: space-around;
+    font-size: 18px;
 }
 
-.colored{
+.colored {
     color: var(--cool-blue);
     padding: ;
     font-weight: bold;
     appearance: none;
     border: none;
-    outline:none;
-   
+    outline: none;
+
+}
+
+.pagination{
+    margin-top: 3em;
+    padding: 3em;
+    
+}
+
+.step-links{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    font-size: 16px;
+    letter-spacing: .5px;
+    justify-content: space-between;
 }

@@ -15,11 +15,11 @@ class AccomodationForm(forms.ModelForm):
         }
         
         widgets = {
-            'state': forms.Select(attrs={'class':'form_control','placeholder':'Enter state:'}),
-            'school': forms.TextInput(attrs={'class':'form_control','placeholder':'Enter school name:'}),
+            'state': forms.Select(attrs={'class':'form_control','placeholder':'What state is the hostel located?'}),
+            'school': forms.TextInput(attrs={'class':'form_control','placeholder':'What university is closest to the hostel?:'}),
             'price': forms.NumberInput(attrs={'class':'form_control','id':'price'} ),
-            'Hostel_name': forms.TextInput(attrs={'class':'form_control','placeholder':'Enter hostel name:'}),
-            'Address': forms.TextInput(attrs={'class':'form_control','placeholder':'Enter listing address:'}),
+            'Hostel_name': forms.TextInput(attrs={'class':'form_control','placeholder':'What id the name of the hostel?'}),
+            'Address': forms.TextInput(attrs={'class':'form_control','placeholder':'What is the address of the hostel?'}),
             'LGA': forms.TextInput(attrs={'class':'form_control', 'placeholder':'Enter LGA:'}),
             'image_1': forms.FileInput(attrs={'class':'forms_control','id':'preferred_image'}),
             'image_2': forms.FileInput(attrs={'class':'forms_control','class':'side_image'}),
@@ -27,3 +27,13 @@ class AccomodationForm(forms.ModelForm):
             'image_4': forms.FileInput(attrs={'class':'forms_control','class':'side_image','required': False}),
             'Description': forms.TextInput(attrs={'class':'form_control'}),
         }
+
+
+def check_price(self):
+    price = self.cleaned_data['price']
+    if price > 1000000:
+        raise form.ValidatorError('Hostel price cannot be greater than One Million')
+    else:
+        return price
+    
+    

@@ -49,10 +49,10 @@
         </div>
      </header>
      <main>
-        <div class="text">
-          <h1>Add a New Accommodation</h1>
-        <p>Add a new accomodation listing to CampusHome</p>
-        </div>
+                <div class="text">
+                  <h1>Add a New Accommodation</h1>
+                <p>Add a new accomodation listing to CampusHome</p>
+                </div>
 
         
 
@@ -60,107 +60,147 @@
         <!-- add accomodation form -->
 
         
-        <div class="form-container">
-          <div id="error-message" style='display:none'>
-            <p>Pllease, fill the form correctly before proceeding to the next page</p>
-           <button id='close_btn'>X</button>
-          </div>
-          <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
+              <div class="form-container">
+                          <div id="error-message" style='display:none'>
+                            <p>Pllease, fill the form correctly before proceeding to the next page</p>
+                          <button id='close_btn'>X</button>
+                          </div>
+                          <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
 
-            {% comment %} FIRST FORM PAGE {% endcomment %}
-            <div id="page-1">
-              
-              <label>{{ form.state.label }}</label>
-              {{ form.state }}
-              <br>
-              <label>{{ form.school.label }}</label>
-              {{ form.school }}
-              <br>
-              <label>{{ form.LGA.label }}</label>
-              {{ form.LGA }}
-              <br>
-              <label>{{ form.Hostel_name.label }}</label>
-              {{ form.Hostel_name }}
-              <br>
-              <label>{{ form.Address.label }}</label>
-              {{ form.Address }}
+                            {% comment %} FIRST FORM PAGE {% endcomment %}
+                            <div id="page-1">
+                                      
+                                      <label>{{ form.state.label }}</label>
+                                      {{ form.state }}
+                                      <br>
+                                      <label>{{ form.school.label }}</label>
+                                      {{ form.school }}
+                                      <br>
+                                      <label>{{ form.LGA.label }}</label>
+                                      {{ form.LGA }}
+                                      <br>
+                                      <label>{{ form.Hostel_name.label }}</label>
+                                      {{ form.Hostel_name }}
+                                      <br>
+                                      <label>{{ form.Address.label }}</label>
+                                      {{ form.Address }}
 
-              <label>{{ form.price.label }}</label>
-              <input type="number" name="price" id="">
-              
-              
-              
-              <button type="button" class="btn btn-primary right-btn"  onclick="showPage(2)">Next<i class="fa-solid fa-arrow-right icon"></i></button>
-            </div>
-            
+                                      <label>{{ form.price.label }}</label>
+                                      {{ form.price }}
 
-            {% comment %} SECOND FORM PAGE {% endcomment %}
 
-            <div id="price-error" style='display:none'>
-              <p>Price of accomodation cannot exeed 0ne million</p>
-             <button id='close'>X</button>
-            </div>
+                                      <h3>Select what is available in the Listing :</h3>
+         
+                                      <div class="amenities">
+                                        
+                                          {% for amenity in form.amenities %}
+                                          <div class="amenity">
+                                            <label for="{{ amenity.id_for_label }}">{{ amenity.choice_label }}</label>
+                                            <input type="checkbox" value="{{ amenity.value }}">
+                                          </div>
+                                          {% endfor %}
+                                            
+                                        
+                                       </div>
+                                      
+                                   
+                                        
+                                    
+                                      
+                                      
+                                      
+                                      <button type="button" class="btn btn-primary right-btn"  onclick="showPage(2)">Next<i class="fa-solid fa-arrow-right icon"></i></button>
+                            </div>
+                            
 
-            <div id="page-2" style="display:none;">
-             
+                            {% comment %} SECOND FORM PAGE {% endcomment %}
 
-              <div class="upload_div">
-                <div class="img-area">
-                  <i class="fa-solid fa-cloud-arrow-up upload_img"></i>
-                  <input type="file" name="image_1" accept='image/*' style='display:none;' class='file group-1' >
-                  <p>upload images of accomodations</p>
-                  <p class="caption"></p>
-                  <p></p>
-                </div>
-                <button type='button' class='upload_btn'>Select image</button>
+                            <div id="price-error" style='display:none'>
+                              <p>Price of accomodation cannot exeed 0ne million</p>
+                            <button id='close'>X</button>
+                            </div>
+
+                            <div id="page-2" style="display:none;">
+                            
+
+                                    <div class="upload_div">
+                                      <div class="img-area">
+                                        <i class="fa-solid fa-cloud-arrow-up upload_img"></i>
+                                        <input type="file" name="image_1" accept='image/*' style='display:none;' class='file group-1' >
+                                        <p>upload images of accomodations</p>
+                                        <p class="caption"></p>
+                                        <p></p>
+                                      </div>
+                                      <button type='button' class='upload_btn'>Select image</button>
+                                    </div>
+                                    <br>
+                                    <div class="smaller-images">
+                                      <div class="upload_div">
+                                        <div class="img-area">
+                                          <i class="fa-solid fa-cloud-arrow-up upload_img"></i>
+                                          <input type="file" name="image_2" accept='image/*' style='display:none;' class='file' 
+                                          <p>upload images of accomodations</p>
+                                          <p></p>
+                                        </div>
+                                        <button type='button' class='upload_btn '>Select image</button>
+                                      </div>
+                                      <div class="upload_div">
+                                        <div class="img-area">
+                                          <i class="fa-solid fa-cloud-arrow-up upload_img"></i>
+                                          <input type="file" name="image_3" accept='image/*' style='display:none;' class='file ' >
+                                          {% comment %} <img src="{% static 'images/abuad.jpg' %}" alt=""> {% endcomment %}
+                                          <p>upload images of accomodations</p>
+                                          <p></p>
+                                        </div>
+                                        <button type='button' class='upload_btn'>Select image</button>
+                                      </div>
+                                      <div class="upload_div">
+                                        <div class="img-area">
+                                          <i class="fa-solid fa-cloud-arrow-up upload_img"></i>
+                                          <input type="file" name="image_4" accept='image/*' style='display:none;' class='file' >
+                                          <p>upload images of accomodations</p>
+                                          <p></p>
+                                        </div>
+                                        <button type='button' class='upload_btn'>Select image</button>
+                                      </div>
+                                    </div>
+                                    <div id='desc'>
+                                      <label>{{ form.description.label }}</label>
+                                    {{ form.description }}
+                                    </div>
+                                  
+                                  
+
+                            
+
+                                    <button type="button" onclick="autoGenerateDescription()">Auto-Generate Description</button>
+
+                                    
+                                    <br>
+                                    <div class="btn-con">
+                                      <button type="button" class="btn btn-secondary " id='left-btn' onclick="showPage(1)"><i class="fa-solid fa-arrow-left icon-left"></i>Previous</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                  </div>
+                          </form>
               </div>
-              <br>
-              <div class="smaller-images">
-                <div class="upload_div">
-                  <div class="img-area">
-                    <i class="fa-solid fa-cloud-arrow-up upload_img"></i>
-                    <input type="file" name="image_2" accept='image/*' style='display:none;' class='file' 
-                    <p>upload images of accomodations</p>
-                    <p></p>
+
+              <footer>
+                <div class="footer-area flex">
+                  <div>
+                    <h1 class='site_logo'>CampusHome</h1>
+                  <p class='light-text'>CampusHome’s mission is a future where landlords and tenants in Nigeria experience efficient and affordable rental management. Our products help you to find an apartment and pay monthly, carry out due diligence and verify your tenants, request facility management for your property and apply for rental loans. How can we help you today?</p>
                   </div>
-                  <button type='button' class='upload_btn '>Select image</button>
-                </div>
-                <div class="upload_div">
-                  <div class="img-area">
-                    <i class="fa-solid fa-cloud-arrow-up upload_img"></i>
-                    <input type="file" name="image_3" accept='image/*' style='display:none;' class='file ' >
-                    {% comment %} <img src="{% static 'images/abuad.jpg' %}" alt=""> {% endcomment %}
-                    <p>upload images of accomodations</p>
-                    <p></p>
+                  <div class='links'>
+                    <a href="" >Become Agent</a>
+                    <a href="">Add a listing </a>
+                    <a href="">Find a roomate</a>
+        
                   </div>
-                  <button type='button' class='upload_btn'>Select image</button>
                 </div>
-                <div class="upload_div">
-                  <div class="img-area">
-                    <i class="fa-solid fa-cloud-arrow-up upload_img"></i>
-                    <input type="file" name="image_4" accept='image/*' style='display:none;' class='file' >
-                    <p>upload images of accomodations</p>
-                    <p></p>
-                  </div>
-                  <button type='button' class='upload_btn'>Select image</button>
-                </div>
-              </div>
-              <div id='desc'>
-                <label>{{ form.description.label }}</label>
-              {{ form.description }}
-              </div>
-              <button type="button" onclick="autoGenerateDescription()">Auto-Generate Description</button>
-
-              
-              <br>
-              <div class="btn-con">
-                <button type="button" class="btn btn-secondary " id='left-btn' onclick="showPage(1)"><i class="fa-solid fa-arrow-left icon-left"></i>Previous</button>
-              <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
-            </div>
-          </form>
-        </div>
+              </footer>
+      </main>
         
      
         

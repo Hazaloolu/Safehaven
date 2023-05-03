@@ -62,7 +62,8 @@
         {% if messages %}
   <ul class="messages">
     {% for message in messages %}
-      <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+      <p  class = "successful alert-success">
+        {{ message }}</p>
     {% endfor %}
   </ul>
 {% endif %}
@@ -159,6 +160,9 @@ showButton.addEventListener('click', function () {
   }
 });
 
+setTimeout(function() {
+$('alert-success').fadeOut('fast');
+},5000)
   
       
     </script>

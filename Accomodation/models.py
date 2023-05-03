@@ -8,6 +8,13 @@ from django.core.validators import MinLengthValidator
 # Create your models here.
 
 
+class Amenity(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
+
 class Accomodation(models.Model):
     # define choices for the state dropdown
 
@@ -68,9 +75,11 @@ class Accomodation(models.Model):
     date_time_uploaded = models.DateTimeField(default=datetime.now, blank=True)
     id = models.AutoField(primary_key=True)
     image_public_id = models.CharField(max_length=255)
+    amenities = models.ManyToManyField(Amenity)
 
     def __str__(self):
         if self.Agent:
             return self.Agent.name.username
         else:
             return f'Accomodation {self.pk}'
+

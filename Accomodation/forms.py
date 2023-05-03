@@ -1,11 +1,20 @@
 from django import forms
-from .models import Accomodation
+from .models import Accomodation, Amenity
 from django.core.validators import FileExtensionValidator
 
 class AccomodationForm(forms.ModelForm):
+    
+    amenities = forms.ModelMultipleChoiceField(
+        queryset=Amenity.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=False,
+    )
+        
+    
+    
     class Meta:
         model = Accomodation
-        fields = ['state','school','Address','price','Hostel_name','LGA','image_1','image_2','image_3','image_4','description']
+        fields = ['state','school','Address','price','Hostel_name','LGA','image_1','image_2','image_3','image_4','description','amenities']
         
         field_kwargs = {
             'image_1': {'validators': [FileExtensionValidator(allowed_extensions=['png','jpeg','jpg'])]},
@@ -27,6 +36,13 @@ class AccomodationForm(forms.ModelForm):
             'image_4': forms.FileInput(attrs={'class':'forms_control','class':'side_image','required': False}),
             'Description': forms.TextInput(attrs={'class':'form_control'}),
         }
+    
+    def label_choice_instance(self,obj):
+        return obj.name
+        
+     
+        
+
 
 
 def check_price(self):

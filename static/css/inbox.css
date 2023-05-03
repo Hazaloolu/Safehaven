@@ -184,3 +184,19 @@ button {
     letter-spacing: .5px;
     justify-content: space-between;
 }
+
+.successful{
+    text-align: center;
+    color: rgba(0, 137, 123, 0.9);
+
+    font-size: 12px;
+    border-left:5px solid rgba(0, 137, 123, 0.5);
+    width: 30%;
+    letter-spacing: .5px;
+    background-color: #fafafa;
+    margin: auto;
+    padding: .5em;
+    margin-bottom: 4em;
+   
+
+}

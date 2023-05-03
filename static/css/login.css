@@ -193,3 +193,118 @@ form i{
 .red{
   background-color: #ce2029;
 }
+
+
+
+/* --------Responsiveness ------------- */
+
+@media (max-width:768px) {
+  header{
+    
+    border-bottom: .5px solid #F1F1F1;
+}
+
+.site-logo{
+    font-family:'CS Harley', sans-serif;
+    font-size: 1rem;
+}
+
+.welcome{
+  margin-top: 1em;
+}
+.welcome h1,p{
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  line-height: 1.5em;
+}
+
+.welcome h1{
+  font-size: 1.3rem;
+  margin-bottom: .5rem;
+}
+
+/* -------form ----------- */
+
+.form-container{
+  width: 100%;
+ 
+  margin-top: 3%;
+  
+}
+
+.login-form{
+  width: 85%;
+}
+.login-form input[type='email'], .login-form input[type='password']{
+ width: 100%;
+  padding: 1em;
+  margin-bottom: 1.2em;
+  font-weight: 500;
+  font-size: .5rem;
+
+}
+label{
+  font-size: .8rem;
+  font-weight:500;
+  line-height: 2em;
+}
+
+.form-flex{
+  display: flex;
+  flex-direction: column;
+}
+
+.form-flex button{
+  width: 60%;
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+#sign-up{
+  line-height:1.3em;
+ 
+}
+
+/* -------------- registration form------------- */
+.registrationForm{
+  width: 85%;
+  margin: auto;
+  margin-top:2em;
+}
+
+
+.registrationForm button{
+  width: 60%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  border: none;
+  outline: none;
+  background-color: var(--cool-blue);
+  color: var(--background-white);
+  padding: .5em;
+  font-size: 16px;
+  margin-bottom: 5%;
+}
+#btn{
+  margin-bottom: 3em;
+}
+
+.error-msg{
+  width: 100%;
+  background-color:  #ce2029;
+  text-align: left;
+  color: var(--background-white);
+  padding: .5em;
+  margin-top: .5em;
+  font-size: 1rem;
+  }
+
+#error-img{
+  
+  font-size:1rem;
+  padding: 0 1em;
+}
+
+}

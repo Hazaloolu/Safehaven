@@ -21,6 +21,7 @@ def collectAgentDetails(request):
         
         # set the form_filled field to false for the newly created agent
         agent.form_filled = False
+        new_user.is_agent =False
         
         # save to database
         agent.save()
@@ -48,6 +49,7 @@ def collectAgentDetails(request):
             agent.profile_image = form.cleaned_data['profile_image']
             # Set the form_filled field to True
             agent.form_filled = True
+            new_user.is_agent = True
             
             # save the agent instance to the database
             agent.save()

@@ -29,7 +29,7 @@
     </div>
     <div class="form-container">
  
-            <form name="loginForm" method="post" class='login-form' >
+            <form name="loginForm" method="post" class='login-form' action="{% url 'login' %}?next={{ request.GET.next }}" >
                 {% csrf_token %}
                 {% if error %}
                 <p class='error-msg'><i class="fa-solid fa-circle-exclamation" id='error-img'></i>{{ error }}</p>
@@ -41,7 +41,7 @@
                     <label for="password" class="input-field">Password</label>
                     <input type="password" class="input-field" id="password" placeholder='Password' name='password' required />
                   
-                     <a href="">Need help logging in?</a>
+                    <a href="">Forgot password?</a>
                      <div class="form-flex">
                         <label>
                             <input type="checkbox" id="myCheckbox" />
@@ -51,7 +51,7 @@
                           <button>Log in</button>
                      </div>
 
-                     <p > <a href="">Forgot password?</a></p>
+                    
                      <p id='sign-up'>Don't have an account yet? <a href="{% url 'register' %}">Create account</a></p>
             </form>
    

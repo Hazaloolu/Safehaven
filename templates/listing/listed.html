@@ -46,16 +46,25 @@
                 {% comment %}
               </form>
               {% endcomment %}
-              <button>
-                <a
-                  href="https://wa.me/{{listing.Agent.phone_number}}?text=Hello!%20I'm%20very%20interested%20in%20your%20accomodation%20listing%20(%20http://localhost:8000/listing/{{listing.pk }})%20on%20CampusHome.%20Could%20we%20schedule%20a%20time%20for%20me%20to%20view%20the%20property%20and%20discuss%20the%20details?"
-                  target="_blank"
-                  class="colored"
-                  >Message Agent</a
-                >
-              </button>
+             
+             {% if user.is_authenticated %}
+             <button>
+              <a
+                href="https://wa.me/{{listing.Agent.phone_number}}?text=Hello!%20I'm%20very%20interested%20in%20your%20accomodation%20listing%20(%20http://localhost:8000/listing/{{listing.pk }})%20on%20CampusHome.%20Could%20we%20schedule%20a%20time%20for%20me%20to%20view%20the%20property%20and%20discuss%20the%20details?"
+                target="_blank"
+                class="colored"
+                >Message Agent</a
+              >
+            </button>
+            {% else %}
+            <button>
+              <a href="{% url 'login' %}"  class="colored">Log in</a>
+            </button>
+             {% endif %}
+              
             </div>
           </div>
+          <p>{{listing.Agent.name}}</p>
           <div class="slide-wrapper">
             <div class="image-container">
               
@@ -93,8 +102,25 @@
             </div>
             <h2 class="bold-text">Accomodation Description:</h2>
 
+            
+
            
             <p class="light-text line">{{listing.description}}</p>
+            
+            
+            <div class="amenities line">
+             
+              
+              {% if selected_options %}
+              <h2 class="bold-text">What this listing offers </h2>
+              
+              {% for options in selected_options %}
+                <p>{{options}} | </p>
+              {% endfor %}
+                
+              {% endif %}
+                
+            </div>
             
            <p class="light-text line">This Listing was added on <span class='bold-text'>{{listing.date_time_uploaded}}</span></p>
             {% comment %} <p class="light-text">Agent Name : <span class = 'bold-text'>{{listing.Agent.name}}</span></p> {% endcomment %}
@@ -118,7 +144,7 @@
                 src="{{listing.Agent.profile_image.url}}"
                 alt="Agent_picture"
               />
-              <p>{{listing.Agent.name}}</p>
+              
             </div>
             <div class="details">
               {{listing.Agent.state}} <br />

@@ -106,8 +106,10 @@ def user_login(request):
             return render(request, "accounts/login.html", {"error": "Email has not been verified"})
 
         if user is not None:
+            # Get the "next" parameter from the query string
+            next = request.GET.get('next')
             login(request, user)
-            return redirect("/")
+            return redirect(next or "/")
         else:
             return render(request, "accounts/login.html", {"error": "Invalid email or password"})
     else:

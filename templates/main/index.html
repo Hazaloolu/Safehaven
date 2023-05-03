@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
 
-    {% comment %} Font awesome link {% endcomment %}
+            {% comment %} Font awesome link {% endcomment %}
     <scrip src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
     <link href="{% static 'fontawesomefree/css/all.min.css' %}"  rel="stylesheet" type="text/css"/>
 
@@ -47,7 +47,7 @@
 
               <div class="search_field">
                 <form action="{% url 'search' %}">
-                   <input type="search" name="search" id="search" required  placeholder='Seach by location or university...'></input>
+                   <input type="search" name="search" id="search" required  placeholder='Seach by location, state or university...'></input>
                    <button>Search</button>
                    </form>
               </div>
@@ -95,16 +95,16 @@
             </div>
         </section>
         <section class="landlords">
-            <p class='green '>For LandLords</p>
+            <p class='green '>For Tenants</p>
             <div class="flex">
                 <div class='text'>
                     <h1>Are you looking to rent or lease an apartment? We’ve got you covered.</h1>
                 <a href="" class='colored'>Add Listing</a>
                 </div>
                 <div class="image-wrapper">
-                    <div class="box">
+                   
                         <img src="{% static 'images/landlord.jpeg' %}" alt="">
-                    </div>
+                    
                 </div>
             </div>
         </section>

@@ -13,34 +13,48 @@ from django.core.paginator import Paginator
 # Create your views here.
 
 
-@login_required(login_url="login")
+
 def Add_listing(request):
-    if request.method == 'POST':
-        form = AccomodationForm(request.POST, request.FILES)
-        if form.is_valid():
-            # get the agent associated with the logged-in user
-            new_user = NewUser.objects.get(username=request.user)
-            agent = Agent.objects.get(name=new_user)
-            agent.accomodation_counter += 1
-            agent.save()
+    if request.user.is_authenticated:
+        # user is authenticated already
+        if request.method == 'POST':
+            form = AccomodationForm(request.POST, request.FILES)
+            if form.is_valid():
+                # get the agent associated with the logged-in user
+                selected_options = form.cleaned_data['amenities']
+                new_user = NewUser.objects.get(username=request.user)
+                agent = Agent.objects.get(name=new_user)
+                agent.accomodation_counter += 1
+                agent.save()
+                
+
+                # create a new Accomodation instance and set the Agent field
+                accomodation = form.save(commit=False)
+                accomodation.Agent = agent
+                accomodation.id = agent.accomodation_counter
+                
+
+                # save the Accomodation instance to the database
+                accomodation.save()
+                # save the selected options to the database
+                accomodation.amenities.set(selected_options)
+                # add success message to the user'session
+                messages.success(request, 'New listing added successfully !')
+                
+                # save the seleted options to the sessions
+        
+                return redirect('inbox')
             
 
-            # create a new Accomodation instance and set the Agent field
-            accomodation = form.save(commit=False)
-            accomodation.Agent = agent
-            accomodation.id = agent.accomodation_counter
-            
-
-            # save the Accomodation instance to the database
-            accomodation.save()
-            # add success message to the user'session
-            messages.success(request, 'New accommodation added successfully!')
-            return redirect('inbox')
-          
-
+        else:
+            form = AccomodationForm()
+        return render(request, 'listing/add_listing.html', {'form': form})
     else:
-        form = AccomodationForm()
-    return render(request, 'listing/add_listing.html', {'form': form})
+        # user is not autehnticated
+        # redirect to the login page with the next parameter
+        login_url = reverse('login') + '?next=' + request.path
+        return redirect(login_url)
+        
 
 
 
@@ -58,12 +72,12 @@ def delete_listing(request,listing_id):
   
 # views to view each listings based on the listing_id
 
-@login_required(login_url='login')
+
 def listed(request, listing_id):
     listing = get_object_or_404(Accomodation, pk=listing_id)
+    selected_options = listing.amenities.all()
     
-    
-    context = {'listing':listing}
+    context = {'listing':listing,'selected_options':selected_options,}
     
     return render(request,'listing/listed.html',context)
 

@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Accomodation
+from .models import Accomodation,Amenity
 # Register your models here.
 
-
+admin.site.register(Amenity)
 
 class AccomodationAdmin(admin.ModelAdmin):
     list_display = ('id','Agent','Hostel_name','Address','state','school','price','LGA')

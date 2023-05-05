@@ -1,0 +1,81 @@
+main{
+    width: 98%;
+    margin: auto;
+    
+}
+
+.hero-section{
+    display: flex;
+}
+
+.hero-section h1{
+    width: 70%;
+    font-size: 3em;
+    padding-top: 1em;
+   
+}
+
+.hero-links{
+    width: 50%;
+    
+    margin: auto;
+    margin-top: 5em;
+    font-size: 16px;
+}
+
+.colored-link{
+    background-color: var(--cool-blue);
+    color: var(--background-white);
+    padding: 1em 2em;
+    width: 50%;
+    margin: auto;
+    display: flex;
+}
+
+
+
+/* mpobile view */
+
+@media(max-width:768px){
+    body{
+        
+    }
+
+    main{
+        width: 98%;
+        margin: auto;
+        ;
+        
+    }
+
+    .hero-section{
+        display: flex;
+        gap: 2em;
+        flex-direction:column-reverse;
+    }
+
+    .hero-section h1{
+        width: 90%;
+        font-size: 1.5rem;
+        padding-top:.5em;
+       
+    }
+    
+    .hero-links{
+        width: 100%;
+        
+        margin: auto;
+        margin-top: 1em;
+        font-size: 1rem;
+    }    
+    .colored-link{
+        background-color: var(--cool-blue);
+        color: var(--background-white);
+        padding: 1em 2em;
+        width: 60%;
+        margin: auto;
+        text-align: center;
+        display: flex;
+    }
+    
+}

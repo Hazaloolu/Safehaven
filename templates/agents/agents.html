@@ -1,0 +1,90 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+    {% comment %} Font awesome link {% endcomment %}
+    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+    <link href="{% static 'fontawesomefree/css/all.min.css' %}"  rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'css/agentform.css' %}">
+    <title>CampusHome - AgentForm</title>
+</head>
+<body>
+    <header>
+        <div class="header-area">
+     
+             <h1 class='site_logo'>CampusHome</h1>
+             <!-- Navigation bar with links to sign in and create account pages -->
+             <nav class='navbar'>
+                 <ul>
+
+                     <li><a href="{% url 'home' %}">Home</a></li>
+                     
+                     {% if user.is_authenticated %}
+                     <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                     <li class='colored'><a href="{% url 'logout_view' %}">Log out</a></li>
+                     {% else %}
+                     <li><a href="{% url 'login' %}">Sign in</a></li>
+                     <li class='colored'><a href="{% url 'register' %}">Create account</a></li>
+                     {% endif %}
+                 </ul>
+             </nav>
+             <div id="menu" >
+                <i class="fa-solid fa-bars"></i>
+            </div
+        </div>
+     </header>
+     <main>
+        
+        <p>Kindly fill this form to register as an Agent on CampusHome</p>
+        <ul>
+            <li>Phone number must start with 234</li>
+            <li>Phone number must be 13 digits long</li>
+        </ul>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            
+            {% for error in form.phone_number.errors %}
+                <p style='color:red'>{{error}}</p>
+            {% endfor %}
+                
+            <label>{{ form.state.label }}</label> <br>
+              {{ form.state }}
+              
+              <br>
+              <label>{{ form.phone_number.label }}</label><br>
+               <input type="number" name="phone_number" id="" placeholder = '234 812 384 9834'>
+              <br>
+              {% comment %} <label>Upload display image:</label> {% endcomment %}
+            
+        </br>
+
+             <button type="submit">Submit</button>
+        </form>
+     </main>
+     <script>
+        var navbar = document.querySelector('.navbar');
+    navbar.style.display = 'none';
+        var menu = document.querySelector('#menu')
+    menu.addEventListener('click', function () {
+      if (navbar.style.display === 'none') {
+        navbar.style.display = 'block';
+        navbar.classList.add('fade-in');
+      } else {
+        navbar.style.display = 'none';
+        navbar.classList.remove('fade-in');
+      }
+    });
+    </script>
+     
+    
+    
+</body>
+</html>

@@ -1,0 +1,188 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CampusHome - {{listing.Hostel_name}}</title>
+
+    <link rel="stylesheet" href="{% static 'css/listed.css' %}" />
+
+    {% comment %} Font awesome link {% endcomment %}
+    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+    <link
+      href="{% static 'fontawesomefree/css/all.min.css' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+
+  <body>
+    <header>
+      <a href="javascript:history.back()"
+        ><i class="fa-solid fa-arrow-left icon-left"></i> Back to Listings</a
+      >
+    </header>
+    <main>
+      <div class="wrapper">
+        <div class="listing-details">
+          <div class="listing-header">
+            <div class="listing-address">
+              <h3 class="bold-text">{{listing.Hostel_name}}</h3>
+              <p>{{listing.school}}</p>
+            </div>
+            <div class="listing-links">
+              <button onclick="copyFunction()">
+                <a href="">Copy Link </a><i class="fa-solid fa-link"></i>
+              </button>
+              {% comment %}
+              <form action="{% url 'add_favorite' %}" method="post">
+                {% csrf_token %} {{ form.as_p }} {% endcomment %}
+                <button>
+                  Add to favourite
+                  <i class="fa-regular fa-heart"></i>
+                </button>
+                {% comment %}
+              </form>
+              {% endcomment %}
+              <button>
+                <a
+                  href="https://wa.me/{{listing.Agent.phone_number}}?text=Hello!%20I'm%20very%20interested%20in%20your%20accomodation%20listing%20(%20http://localhost:8000/listing/{{listing.pk }})%20on%20CampusHome.%20Could%20we%20schedule%20a%20time%20for%20me%20to%20view%20the%20property%20and%20discuss%20the%20details?"
+                  target="_blank"
+                  class="colored"
+                  >Message Agent</a
+                >
+              </button>
+            </div>
+          </div>
+          <div class="slide-wrapper">
+            <div class="image-container">
+              
+               <div class="main-image">
+                <img
+                src="{{listing.image_1.url}}"
+                alt="{{Hostel_name}}"
+                id="preferred-image"
+              />
+               </div>
+            
+
+           
+                <div class="side-images">
+                  <img src="{{listing.image_2.url}}" alt="{{Hostel_name}}" />
+                
+              
+                <img src="{{listing.image_3.url}}" alt="{{Hostel_name}}" />
+               
+             
+                </div>
+                
+                
+
+           
+            </div>
+            <br />
+
+          
+          </div>
+          <div class="flex-it">
+            <div class="address line">
+              <h2>{{listing.state}} | {{listing.LGA}}</h2>
+            <p class='light-text'>{{listing.Address}}</p>
+            </div>
+            <h2 class="bold-text">Accomodation Description:</h2>
+
+           
+            <p class="light-text line">{{listing.description}}</p>
+            
+           <p class="light-text line">This Listing was added on <span class='bold-text'>{{listing.date_time_uploaded}}</span></p>
+            {% comment %} <p class="light-text">Agent Name : <span class = 'bold-text'>{{listing.Agent.name}}</span></p> {% endcomment %}
+          <div class="flex">
+            <div class="price">
+              <p>Rent Price </p>
+              <p class="price line bold-text">NGN {{listing.price}} <span class='light-text small '>/year</span> </p>
+            </div>
+            <p class = "flag-listing">Report this Listing</p>
+          </div>
+          </div>
+          
+          
+        </div>
+        {% comment %}
+        <div class="agent-details">
+          <h3>Agent Details</h3>
+          <div class="flex">
+            <div class="first-details">
+              <img
+                src="{{listing.Agent.profile_image.url}}"
+                alt="Agent_picture"
+              />
+              <p>{{listing.Agent.name}}</p>
+            </div>
+            <div class="details">
+              {{listing.Agent.state}} <br />
+
+              {{listing.Agent.phone_number}}
+            </div>
+          </div>
+        </div>
+        {% endcomment %}
+      </div>
+    </main>
+    <script>
+      function copyFunction() {
+        // Create a text field element
+        var textField = document.createElement("textarea");
+        textField.value = window.location.href;
+
+        // Append the text field to the body
+        document.body.appendChild(textField);
+
+        // Select the text field
+        textField.select();
+        textField.setSelectionRange(0, 99999); // For mobile devices
+
+        // Copy the text inside the text field
+        document.execCommand("copy");
+
+        // Remove the text field
+        document.body.removeChild(textField);
+
+        // Change the text of the message element
+        alert("Link copied!");
+      }
+
+      let slideIndex = 1;
+      showSlides(slideIndex);
+
+      function plusSlides(n) {
+        showSlides((slideIndex += n));
+      }
+
+      function currentSlide(n) {
+        showSlides((slideIndex = n));
+      }
+
+      function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+          slideIndex = 1;
+        }
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+      }
+    </script>
+  </body>
+</html>

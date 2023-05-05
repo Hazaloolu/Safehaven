@@ -1,0 +1,46 @@
+@import url('http://fonts.cdnfonts.com/css/cs-harley');
+@import url('https://fonts.cdnfonts.com/css/svn-gilroy');
+@import url('https://fonts.cdnfonts.com/css/svn-gilroy');
+
+:root{
+    --background-white:#FFFFFF;
+    --cool-blue:#00897b;
+    --black:#303030;
+}
+
+
+header{
+    width: 100%;
+    border-bottom: .2px solid #F1F1F1;
+    padding-bottom: 1em;
+}
+
+.site-logo{
+   display: flex;
+   align-items: c;
+}
+ 
+ main{
+    width:90%;
+ }
+ /*    General       */
+  
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

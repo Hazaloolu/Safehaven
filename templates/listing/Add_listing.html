@@ -1,0 +1,326 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusHome - Add Listing</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/inbox.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/Add_listing.css' %}">
+
+    {% comment %} Font awesome link {% endcomment %}
+    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+    <link href="{% static 'fontawesomefree/css/all.min.css' %}"  rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <header>
+        <div class="header-area">
+     
+             <h1 class='site_logo'>CampusHome</h1>
+             <!-- Navigation bar with links to sign in and create account pages -->
+             <nav id='nav'>
+                 <ul>
+
+                  <li><a href="{% url 'home' %}">Home</a></li>
+                  <li><a href="{% url 'inbox' %}">Dashboard</a></li>
+                  
+                     
+                    
+                 </ul>
+                 <li class="round">
+              
+                  <button type=''  id='show'> <i class="fa-solid fa-user" id="i"></i
+                   ></button> <i class="fa-solid fa-caret-down"></i
+                 >
+               </li>
+             </nav>
+        </div>
+        <div class="profile-card">
+          <ul>
+            <li><a href="{% url 'inbox' %}">Agent Inbox</a></li>
+            <li><a href="{% url 'dashboard' %}">Tenant Dashboard</a></li>
+            <li><a href="">My Account</a></li>
+            <li><a href="">Privacy policy</a></li>
+            <li><a href="{% url 'logout_view' %}">Logout</a></li>
+            
+          </ul>
+        </div>
+     </header>
+     <main>
+                <div class="text">
+                  <h1>Add a New Accommodation</h1>
+                <p>Add a new accomodation listing to CampusHome</p>
+                </div>
+
+        
+
+
+        <!-- add accomodation form -->
+
+        
+              <div class="form-container">
+                          <div id="error-message" style='display:none'>
+                            <p>Pllease, fill the form correctly before proceeding to the next page</p>
+                          <button id='close_btn'>X</button>
+                          </div>
+                          <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+
+                            {% comment %} FIRST FORM PAGE {% endcomment %}
+                            <div id="page-1">
+                                      
+                                      <label>{{ form.state.label }}</label>
+                                      {{ form.state }}
+                                      <br>
+                                      <label>{{ form.school.label }}</label>
+                                      {{ form.school }}
+                                      <br>
+                                      <label>{{ form.LGA.label }}</label>
+                                      {{ form.LGA }}
+                                      <br>
+                                      <label>{{ form.Hostel_name.label }}</label>
+                                      {{ form.Hostel_name }}
+                                      <br>
+                                      <label>{{ form.Address.label }}</label>
+                                      {{ form.Address }}
+
+                                      <label>{{ form.price.label }}</label>
+                                      {{ form.price }}
+
+
+                                      <h3>Select what is available in the Listing :</h3>
+         
+                                      <div class="amenities">
+                                        
+                                          {% for amenity in form.amenities %}
+                                          <div class="amenity">
+                                            <label for="{{ amenity.id_for_label }}">{{ amenity.choice_label }}</label>
+                                            <input type="checkbox" value="{{ amenity.value }}">
+                                          </div>
+                                          {% endfor %}
+                                            
+                                        
+                                       </div>
+                                      
+                                   
+                                        
+                                    
+                                      
+                                      
+                                      
+                                      <button type="button" class="btn btn-primary right-btn"  onclick="showPage(2)">Next<i class="fa-solid fa-arrow-right icon"></i></button>
+                            </div>
+                            
+
+                            {% comment %} SECOND FORM PAGE {% endcomment %}
+
+                            <div id="price-error" style='display:none'>
+                              <p>Price of accomodation cannot exeed 0ne million</p>
+                            <button id='close'>X</button>
+                            </div>
+
+                            <div id="page-2" style="display:none;">
+                            
+
+                                    <div class="upload_div">
+                                      <div class="img-area">
+                                        <i class="fa-solid fa-cloud-arrow-up upload_img"></i>
+                                        <input type="file" name="image_1" accept='image/*' style='display:none;' class='file group-1' >
+                                        <p>upload images of accomodations</p>
+                                        <p class="caption"></p>
+                                        <p></p>
+                                      </div>
+                                      <button type='button' class='upload_btn'>Select image</button>
+                                    </div>
+                                    <br>
+                                    <div class="smaller-images">
+                                      <div class="upload_div">
+                                        <div class="img-area">
+                                          <i class="fa-solid fa-cloud-arrow-up upload_img"></i>
+                                          <input type="file" name="image_2" accept='image/*' style='display:none;' class='file' 
+                                          <p>upload images of accomodations</p>
+                                          <p></p>
+                                        </div>
+                                        <button type='button' class='upload_btn '>Select image</button>
+                                      </div>
+                                      <div class="upload_div">
+                                        <div class="img-area">
+                                          <i class="fa-solid fa-cloud-arrow-up upload_img"></i>
+                                          <input type="file" name="image_3" accept='image/*' style='display:none;' class='file ' >
+                                          {% comment %} <img src="{% static 'images/abuad.jpg' %}" alt=""> {% endcomment %}
+                                          <p>upload images of accomodations</p>
+                                          <p></p>
+                                        </div>
+                                        <button type='button' class='upload_btn'>Select image</button>
+                                      </div>
+                                      <div class="upload_div">
+                                        <div class="img-area">
+                                          <i class="fa-solid fa-cloud-arrow-up upload_img"></i>
+                                          <input type="file" name="image_4" accept='image/*' style='display:none;' class='file' >
+                                          <p>upload images of accomodations</p>
+                                          <p></p>
+                                        </div>
+                                        <button type='button' class='upload_btn'>Select image</button>
+                                      </div>
+                                    </div>
+                                    <div id='desc'>
+                                      <label>{{ form.description.label }}</label>
+                                    {{ form.description }}
+                                    </div>
+                                  
+                                  
+
+                            
+
+                                    <button type="button" onclick="autoGenerateDescription()">Auto-Generate Description</button>
+
+                                    
+                                    <br>
+                                    <div class="btn-con">
+                                      <button type="button" class="btn btn-secondary " id='left-btn' onclick="showPage(1)"><i class="fa-solid fa-arrow-left icon-left"></i>Previous</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                  </div>
+                          </form>
+              </div>
+
+              <footer>
+                <div class="footer-area flex">
+                  <div>
+                    <h1 class='site_logo'>CampusHome</h1>
+                  <p class='light-text'>CampusHome’s mission is a future where landlords and tenants in Nigeria experience efficient and affordable rental management. Our products help you to find an apartment and pay monthly, carry out due diligence and verify your tenants, request facility management for your property and apply for rental loans. How can we help you today?</p>
+                  </div>
+                  <div class='links'>
+                    <a href="" >Become Agent</a>
+                    <a href="">Add a listing </a>
+                    <a href="">Find a roomate</a>
+        
+                  </div>
+                </div>
+              </footer>
+      </main>
+        
+     
+        
+        {% comment %} <script src="{% static 'js/script.js' %}"></script>  {% endcomment %}
+         <script>
+            
+          const selectBtn = document.querySelectorAll('.upload_btn')
+          const inputFile = document.querySelectorAll('.file')
+          const imgArea = document.querySelectorAll('.img-area')
+
+          selectBtn.forEach((btn, index) => {
+            btn.addEventListener('click', function() {
+              inputFile[index].click()
+            })
+          })
+
+          inputFile.forEach((file, index) => {
+            file.addEventListener('change', function(){
+              const image = this.files[0]
+              console.log(image)
+              const reader = new FileReader();
+              reader.onload = () =>{
+                const imgUrl = reader.result
+                const img = document.createElement('img');
+                img.src = imgUrl;
+                img.title = image.name; // set the title attribute to the file name
+                imgArea[index].appendChild(img)
+              }
+              reader.readAsDataURL(image) 
+            })
+          })
+
+          // nav bar profile card display
+
+          var card = document.querySelector('.profile-card');
+          card.style.display = 'none';
+
+          var showButton = document.querySelector('#show');
+          showButton.addEventListener('click', function () {
+            if (card.style.display === 'none') {
+              card.style.display = 'block';
+              card.classList.add('fade-in');
+            } else {
+              card.style.display = 'none';
+              card.classList.remove('fade-in');
+            }
+          });
+
+
+          function showPage(pageNumber) {
+            if (pageNumber == 1) {
+              // Show page 1 and hide page 2
+              document.getElementById('page-1').style.display = 'block';
+              document.getElementById('page-2').style.display = 'none';
+            } else if (pageNumber == 2) {
+              // Validate form fields on page 1
+              var form = document.forms[0];
+              var state = form.state.value;
+              var school = form.school.value;
+              var LGA = form.LGA.value;
+              var hostel_name = form.Hostel_name.value;
+              var address = form.Address.value;
+              var price = form.price.value
+
+              //check ut the hosetel price is greater than one million
+             
+              // Display error message if any of the required fields are empty
+              if (!state || !school || !LGA || !hostel_name || !address) {
+                document.getElementById('error-message').style.display = 'flex';
+                return;
+              }
+          
+              // Show page 2 and hide page 1
+              document.getElementById('page-1').style.display = 'none';
+              document.getElementById('page-2').style.display = 'block';
+            }
+          }
+
+          function checkPrice(){
+            if(price>1000000){
+              document.getElementById('price-error').style.display='flex'
+              return
+           }
+          }
+
+
+          function autoGenerateDescription() {
+            var state = form.state.value;
+            var school = form.school.value;
+            var LGA = form.LGA.value;
+            var hostel_name = form.Hostel_name.value;
+            var address = form.Address.value;
+            var price = form.price.value
+
+            const description = `A ${state} home in ${address} for just $${price}!`;
+          
+            document.getElementById("description").value = description;
+          }
+          
+          
+          //close the error message
+          var closeBtn = document.getElementById('close_btn')
+          var errMsg = document.getElementById('error-message')
+          
+          // Add a click event listener to the "close" button
+          closeBtn.addEventListener('click', function () {
+            // Hide the error message
+            errMsg.style.display = 'none';
+          });
+          
+
+
+          
+          
+
+
+          
+
+         </script>
+        
+</body>
+</html>

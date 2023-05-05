@@ -1,0 +1,170 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CampusHome - inbox</title>
+    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/inbox.css' %}" />
+
+    {% comment %} Font awesome link {% endcomment %}
+    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+    <link
+      href="{% static 'fontawesomefree/css/all.min.css' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="header-area">
+        <h1 class="site_logo">CampusHome</h1>
+        <!-- Navigation bar with links to sign in and create account pages -->
+        <nav>
+          <ul>
+            <li class><a href="{% url 'home' %}">Home</a></li>
+            <li class="colored">
+              <a href="{% url 'Agent_details' %}"
+                ><i class="fa-solid fa-plus"></i> Add Listing</a
+              >
+            </li>
+            <li class="id" ="round">
+              
+               <button type=''  id='show'> <i class="fa-solid fa-user" id="i"></i
+                ></button> <i class="fa-solid fa-caret-down"></i
+              >
+            </li>
+          </ul>
+        </nav>
+       
+      </div>
+      <div class="profile-card">
+        <ul>
+          <li><a href="{% url 'Agent_details' %}">Add Listing</a></li>
+          <li><a href="{% url 'dashboard' %}">Tenants Dashboard</a></li>
+          <li><a href="">My Account</a></li>
+          <li><a href="">Privacy policy</a></li>
+          <li><a href="{% url 'logout_view' %}">Logout</a></li>
+
+          
+        </ul>
+      </div>
+    </header>
+    <main>
+      <div class="accomodation-container">
+        <h1>Listed Accomodations</h1>
+
+        {% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <p  class = "successful alert-success">
+        {{ message }}</p>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+
+        <p class="acco-p">
+          You have a total of <span>{{total_listing}}</span> Listing(s)
+        </p>
+
+        {% for accomodations in page_obj %}
+        <div class="wrapper">
+          <p class="out_p"></p>
+
+          <div class="listed">
+            <img
+              src="{{accomodations.image_1.url}}"
+              alt="{{agent.Agent_name}}"
+              width="22%"
+              height="150px"
+            />
+            <p>{{accomodations.Hostel_name}}</p>
+            <p>{{accomodations.school}}</p>
+            <p>{{accomodations.state}}</p>
+            <a href="{% url 'listed' accomodations.id %}">View Details</a>
+          </div>
+          <button onclick="document.getElementById('id01').style.display='block'" ><i class="fa-solid fa-trash out_p"></i></button>
+        </div>
+        
+        {% endfor %}
+
+        <div class="pagination">
+          <span class="step-links">
+              <span>
+                {% if page_obj.has_previous %}
+                  
+                  <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+              {% endif %}
+              </span>
+      
+              <span class="current">
+                  Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+              </span>
+              <span>
+                
+              {% if page_obj.has_next %}
+              <a href="?page={{ page_obj.next_page_number }}">Next</a>
+            
+          {% endif %}
+              </span>
+      
+          </span>
+      </div>
+
+        
+        {% for accomodations  in accomodations  %}
+        <div id="id01" class="w3-modal" >
+          <div class="w3-modal-content">
+            <div class="w3-container">
+              <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+           
+               <p>Are you sure you want to delete this listing?</p>
+              
+              <div class="btn-container">
+                <button onclick="document.getElementById('id01').style.display='none'" class="colored">cancel</button>
+                <button ><a href="{% url 'delete_listing' accomodations.id %}" class='red'>Yes,delete</a></button>
+              
+              
+            </div>
+          </div>
+        
+        
+        </div>
+        {% endfor %}
+          
+      </div
+
+
+    </main>
+    <script>
+
+      // nav bar profile card display
+
+var card = document.querySelector('.profile-card');
+card.style.display = 'none';
+
+var showButton = document.querySelector('#show');
+showButton.addEventListener('click', function () {
+  if (card.style.display === 'none') {
+    card.style.display = 'block';
+    card.classList.add('fade-in');
+  } else {
+    card.style.display = 'none';
+    card.classList.remove('fade-in');
+  }
+});
+
+setTimeout(function() {
+$('alert-success').fadeOut('fast');
+},5000)
+  
+      
+    </script>
+  </body>
+</html>

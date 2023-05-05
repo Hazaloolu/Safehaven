@@ -1,0 +1,32 @@
+.wrapper{
+    
+    width: 85%;
+    margin: auto;
+    margin-top:3%;
+    display: block;
+    padding: ;
+    
+}
+
+.absolute{
+    text-align: center;
+   padding: 2%;
+   width: 60%;
+   margin: auto;
+}
+
+
+.wrapper .listed{
+    width: 100%;
+    margin-bottom:-1em;
+}
+
+
+
+.image-container img{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    width: 30%;
+    height: auto;
+  }

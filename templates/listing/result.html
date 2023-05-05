@@ -1,0 +1,89 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/inbox.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/result.css' %}" />
+    <title>CampusHome - search result</title>
+</head>
+<body>
+  <header>
+    <div class="header-area">
+ 
+         <h1 class='site_logo'>CampusHome</h1>
+         <!-- Navigation bar with links to sign in and create account pages -->
+         <a href="javascript:history.back()"
+        ><i class="fa-solid fa-arrow-left icon-left"></i> Back</a
+      
+        
+
+  </div>
+         
+    </div>
+ </header>
+ <main>
+  
+    
+  {% if accomodations %}
+  <h2 class='absolute light-text'>Listings that are related to the query search "{{search_query}}"</h2>
+        
+  
+
+{% for accomodations in page_obj  %}
+      <div class="wrapper">
+        <div class="listed">
+          <img
+            src="{{accomodations.image_1.url}}"
+            alt="{{agent.Agent_name}}"
+            width="22%"
+            height="150px"
+          />
+          <p>{{accomodations.Hostel_name}}</p>
+          <p>{{accomodations.school}}</p>
+          <p>{{accomodations.state}}</p>
+          <a href="{% url 'result_listed' accomodations.id %}">View Details</a>
+        </div>
+      </div>
+    {% endfor %}
+    {% else %}
+    <h1 class='absolute light-text'>No available listing that matches the search query "{{search_query}}"</h1>
+    <div class="image-container">
+      <img src="{% static 'images/empty_search.png' %}" alt="" />
+    </div>
+    {% endif %}
+
+    <div class="pagination">
+      <span class="step-links">
+          <span>
+            {% if page_obj.has_previous %}
+              
+              <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+          {% endif %}
+          </span>
+  
+          <span class="current">
+              Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+          </span>
+          <span>
+            
+          {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}">Next</a>
+        
+      {% endif %}
+          </span>
+  
+      </span>
+  </div>
+  
+ </main>
+ <footer>
+  
+ </footer>
+    
+</body>
+</html>

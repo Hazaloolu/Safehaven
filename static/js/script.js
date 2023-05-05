@@ -143,3 +143,20 @@ console.log(currentURL)
 
 
 
+
+
+
+// Mobile view navbar
+
+var navbar = document.querySelector('.navbar');
+navbar.style.display = 'none';
+    var menu = document.querySelector('#menu')
+menu.addEventListener('click', function () {
+  if (navbar.style.display === 'none') {
+    navbar.style.display = 'block';
+    navbar.classList.add('fade-in');
+  } else {
+    navbar.style.display = 'none';
+    navbar.classList.remove('fade-in');
+  }
+});

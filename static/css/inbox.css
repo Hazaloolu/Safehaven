@@ -200,3 +200,20 @@ button {
    
 
 }
+
+
+/* mobile view */
+
+
+@media(max-width:768px){
+    /* profile card styling */
+.profile-card {
+    position: absolute;
+    right: 1em;
+    top: 5em;
+    width: 80%;
+    
+
+
+}
+}

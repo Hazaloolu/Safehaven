@@ -52,3 +52,48 @@ main ul li{
 input[type=number]::-webkit-inner-spin-button { 
     display: none;
 }
+
+
+/* mobile view */
+
+@media(max-width:768px){
+    main{
+        width: 90%;
+        margin: auto;
+        padding-top: 25%;
+    }
+    
+    h2,p{
+        text-align: center;
+        line-height:1.5em;
+    }
+    
+    form{
+        
+        width: 40%;
+        
+        margin: auto;
+        margin-top: 2% ;
+    }
+
+    main ul{
+        width:90%;
+        margin: auto;
+        margin-top: 2em;
+    }
+
+    form{
+    
+        width: 90%;
+        
+        margin: auto;
+        margin-top: 2% ;
+    }
+
+    form button{
+        width: 50%;
+        
+        padding: 1em ;
+        
+    }
+}

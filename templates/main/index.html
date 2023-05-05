@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    
 
             {% comment %} Font awesome link {% endcomment %}
     <scrip src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
@@ -20,22 +21,27 @@
     
             <h1 class='site_logo'>CampusHome</h1>
             <!-- Navigation bar with links to sign in and create account pages -->
-            <nav>
+            <nav class="navbar">
                 <ul>
                     {% if user.is_superuser %}
                     <li><a href="admin">Admin</a></li>
                 {% endif %}
                     <li><a href="{% url 'BecomeAgent' %}">Become an agent</a></li>
+                    <li><a href="{% url 'BecomeAgent' %}">Find an listing</a></li>
+
                     
                     {% if user.is_authenticated %}
                     <li><a href="{% url 'inbox' %}">Inbox</a></li>
                     <li class='colored'><a href="{% url 'logout_view' %}">Log out</a></li>
                     {% else %}
-                    <li><a href="{% url 'login' %}" target="_blank">Sign in</a></li>
-                    <li class='colored'><a href="{% url 'register' %}" target = "_blank">Create account</a></li>
+                    <li mobile-colored><a href="{% url 'login' %}" target="_blank">Sign in</a></li>
+                    <li class='colored mobile-colored'><a href="{% url 'register' %}" target = "_blank">Create account</a></li>
                     {% endif %}
                 </ul>
             </nav>
+            <div id="menu" >
+                <i class="fa-solid fa-bars"></i>
+            </div>
        </div>
     </header>
 
@@ -48,7 +54,8 @@
               <div class="search_field">
                 <form action="{% url 'search' %}">
                    <input type="search" name="search" id="search" required  placeholder='Seach by location, state or university...'></input>
-                   <button>Search</button>
+                   <button id='btn'>Search</button>
+                   <button  class='arrow'><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
                    </form>
               </div>
 
@@ -58,8 +65,8 @@
 
         <section class="just-added">
             
-            <div cass="wrapper">
-                <p>Recently added Listings</p>
+            <div class="wrapper">
+                <p class='recently'>Recently added Listings</p>
                     <div class="container">
                         {% comment %} ------ ACCOMODATION 1 {% endcomment %}
                         
@@ -74,11 +81,11 @@
                             width="22%"
                             height="150px"
                           />
-                           <div class="flex">
+                           <div class="flex mobile-flex">
                                <p class='hostel_name bold-text '>{{accomodations.Hostel_name}}</p>
                                <p class='light-text'>{{accomodations.state}}</p>
                             </div>
-                            <p class='light-text price'>{{accomodations.school}}</p>
+                            <p class='light-text'>{{accomodations.school}}</p>
                 
                             <div class="flex line">
                                 <p class="price  bold-text">NGN {{accomodations.price}} <span class='light-text small '>/year</span> </p>
@@ -103,7 +110,8 @@
                 </div>
                 <div class="image-wrapper">
                    
-                        <img src="{% static 'images/landlord.jpeg' %}" alt="">
+                        {% comment %} <img src="{% static 'images/landlord.jpeg' %}" alt=""> {% endcomment %}
+                        <img src="{% static 'images/houseAgents.jpg' %}" alt="">
                     
                 </div>
             </div>
@@ -118,12 +126,13 @@
         <div class="footer-area flex">
            <div>
             <h1 class='site_logo'>CampusHome</h1>
-           <p class='light-text'>CampusHome’s mission is a future where landlords and tenants in Nigeria experience efficient and affordable rental management. Our products help you to find an apartment and pay monthly, carry out due diligence and verify your tenants, request facility management for your property and apply for rental loans. How can we help you today?</p>
+           <p class='light-text'>CampusHome’s mission is a future where landlords and tenants in Nigeria experience efficient and affordable rental management. request facility management for your property and apply for rental loans. How can we help you today?</p>
            </div>
            <div class='links'>
             <a href="" >Become Agent</a>
             <a href="">Add a listing </a>
             <a href="">Find a roomate</a>
+            
  
            </div>
         </div>
@@ -135,7 +144,20 @@
     
        
     
-
+<script>
+    var navbar = document.querySelector('.navbar');
+navbar.style.display = 'none';
+    var menu = document.querySelector('#menu')
+menu.addEventListener('click', function () {
+  if (navbar.style.display === 'none') {
+    navbar.style.display = 'block';
+    navbar.classList.add('fade-in');
+  } else {
+    navbar.style.display = 'none';
+    navbar.classList.remove('fade-in');
+  }
+});
+</script>jnj
 </body>
 
 </html>

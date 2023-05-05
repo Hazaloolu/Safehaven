@@ -21,7 +21,7 @@
         <div class="header-area">
              <h1 class='site_logo'>CampusHome</h1>
              <!-- Navigation bar with links to sign in and create account pages -->
-             <nav>
+             <nav class="navbar">
                  <ul>
                      <li><a href="{% url 'home' %}">Home</a></li>
                      <li><a href="{% url 'Agent_details' %}">Add Listing</a></li>
@@ -32,6 +32,9 @@
                      {% endif %}
                  </ul>
              </nav>
+             <div id="menu" >
+                <i class="fa-solid fa-bars"></i>
+            </div>
         </div>
      </header>
      <main>
@@ -46,7 +49,7 @@
             </div>
             
         </section>
-        <section class="landlords">
+        {% comment %} <section class="landlords">
             <p class='green '>For LandLords</p>
             <div class="flex">
                 <div class='text'>
@@ -59,7 +62,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> {% endcomment %}
         <footer>
             <div class="footer-area flex">
                <div>
@@ -74,40 +77,23 @@
                </div>
             </div>
         </footer>
-                    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-
-        
-
+      
+ 
      </main>
+     <script>
+        var navbar = document.querySelector('.navbar');
+    navbar.style.display = 'none';
+        var menu = document.querySelector('#menu')
+    menu.addEventListener('click', function () {
+      if (navbar.style.display === 'none') {
+        navbar.style.display = 'block';
+        navbar.classList.add('fade-in');
+      } else {
+        navbar.style.display = 'none';
+        navbar.classList.remove('fade-in');
+      }
+    });
+    </script>
 
      
 

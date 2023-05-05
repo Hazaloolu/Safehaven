@@ -377,3 +377,117 @@ form h3 {
 
   padding: 3em 0;
 }
+
+@media(max-width:768px){
+  body{
+   
+  }
+
+  header li{
+   list-style: none;
+  }
+
+  header nav ul{
+    display: none;
+  }
+
+  .round {
+    padding-left: 3em;
+    font-size: 20px;
+
+  
+  }
+
+  .text {
+    text-align: center;
+    padding-top: 2em;
+    line-height: 2em;
+  }
+  
+  .form-container {
+  
+    margin: 0 auto;
+    padding: 40px;
+    padding-bottom: 20%;
+    border-bottom: 2px solid #e6e9ed;
+    ;
+  
+  }
+
+  .form-container {
+
+    margin: 0 auto;
+    padding:2em;
+    padding-bottom: 20%;
+    border-bottom: 2px solid #e6e9ed;
+    ;
+  
+  }
+  
+  /* first page  */
+  #page-1 {
+    width:100%;
+    padding:0;
+  }
+
+  
+form label {
+  font-size: 1rem;
+  font-weight: bolder;
+  margin-bottom: 2em;
+  color: #333;
+}
+
+#error-message {
+  font-size: .4em;
+  padding: 1em;
+  padding-bottom:25%;
+  
+
+}
+
+.amenities {
+display:grid;
+grid-template-columns: repeat(15,70%);
+        grid-template-rows: auto;
+  overflow-x: scroll;
+}
+
+.amenity {
+width: 100%;
+padding: 1em;
+margin-bottom: 3em;
+}
+
+.amenity input[type='checkbox'] {
+
+  height: 1.2em;
+  margin-top: -2em;
+  margin-left: 3em;
+
+}
+
+.amenity input[type='checkbox']:checked {
+  background-color: green;
+}
+
+.amenities h3 {
+  font-size: 1rem;
+  color: #00897b;
+}
+
+.amenities label {
+  margin-bottom: 2em;
+  opacity: .8;
+  font-size: 10px;
+}
+
+.upload_div {
+  width: 100%;
+  margin: auto;
+  height: 22em;
+  
+
+}
+
+}

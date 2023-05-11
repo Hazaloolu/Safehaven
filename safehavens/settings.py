@@ -29,7 +29,7 @@ SECRET_KEY = config("DJANGO_SECRET_KEY",default='django-insecure-v1x!e1^%ilco=fk
 DEBUG = config("DJANGO_DEBUG",default=True,cast = bool)
 
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
 
 
 # Application definition

@@ -175,8 +175,8 @@ main {
     height: 7vh;
     color: #FFFFFF;
     outline: none;
-    padding: .5em;
-    border-radius: 50px;
+   
+    border-radius: 50%;
 }
 
 

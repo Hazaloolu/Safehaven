@@ -182,8 +182,6 @@ STORAGES = {
     "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
-CSRF_TRUSTED_ORIGINS = ['campushome.up.railway.app']
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+
 
 

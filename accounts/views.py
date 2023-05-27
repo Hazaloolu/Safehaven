@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .forms import RegistrationForm
 from accounts.models import NewUser
+from django.views.decorators.csrf import csrf_failure
 from django.contrib import messages
 # from django.utils.encoding import force_str
 # from django.utils.http import urlsafe_base64_decode
@@ -92,6 +93,16 @@ def register(request):
 
         # Render the registration template, passing the context dictionary
         return render(request, 'accounts/register.html', context)
+
+
+
+
+
+
+@csrf_failure
+def csrf_failure_view(request, reason=''):
+    return render(request, 'csrf_failure.html', {'reason': reason})
+
 
 
 def user_login(request):

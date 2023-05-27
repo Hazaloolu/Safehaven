@@ -33,7 +33,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['campusHome.up.railway.app','127.0.0.1']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -182,6 +182,8 @@ STORAGES = {
     "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
+    
+}
 
 
 

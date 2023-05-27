@@ -186,4 +186,8 @@ STORAGES = {
 }
 
 
+CSRF_TRUSTED_ORIGINS = ['campushome.up.railway.app']
+
+
+
 

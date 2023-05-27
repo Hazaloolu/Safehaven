@@ -101,7 +101,7 @@ def register(request):
 
 @csrf_failure
 def csrf_failure_view(request, reason=''):
-    return render(request, 'csrf_failure.html', {'reason': reason})
+    return render(request, 'accounts/activation_email.html', {'reason': reason})
 
 
 

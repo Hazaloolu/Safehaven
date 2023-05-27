@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .forms import RegistrationForm
 from accounts.models import NewUser
-from django.views.decorators.csrf import csrf_failure
+from django.views.decorators.csrf import requires_csrf_token
 from django.contrib import messages
 # from django.utils.encoding import force_str
 # from django.utils.http import urlsafe_base64_decode
@@ -99,7 +99,7 @@ def register(request):
 
 
 
-@csrf_failure
+@requires_csrf_token
 def csrf_failure_view(request, reason=''):
     return render(request, 'accounts/activation_email.html', {'reason': reason})
 

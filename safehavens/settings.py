@@ -188,6 +188,8 @@ STORAGES = {
 
 # CSRF_TRUSTED_ORIGINS = ['https://campushome.up.railway.app/']
 
+CSRF_COOKIE_SECURE = True 
+
 
 
 

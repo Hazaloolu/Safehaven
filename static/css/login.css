@@ -65,7 +65,7 @@ label{
 }
 
 .login-form input[type='email'], .login-form input[type='password']{
-
+ font-size:16px;
   padding: 1em;
   margin-bottom: 1.5em;
   font-weight: 500;

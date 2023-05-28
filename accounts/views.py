@@ -20,25 +20,6 @@ from django.contrib import messages
 
 
 
-
-
-# def activate(request, uidb64, token):
-#     try:
-#         uid = urlsafe_base64_decode(uidb64).decode()
-#         user = User.objects.get(pk=uid)
-#     except(TypeError, ValueError, OverflowError, User.DoesNotExist):
-#         user = None
-
-#     if user is not None and account_activation_token.check_token(user, token):
-#         user.is_active = True
-#         user.save()
-#         login(request, user)
-#         messages.success(request, 'Your account has been activated successfully.')
-#         return redirect('home')
-#     else:
-#         messages.error(request, 'The activation link is invalid or has expired.')
-#         return redirect('login')
-
 # View to register users
 
 def register(request):
@@ -66,20 +47,11 @@ def register(request):
             user = authenticate(request, email=email, password=password)
             
            
-            # # send activation email to user
-            # current_site = get_current_site(request)
-            # subject = 'Activate your account'
-            # message = render_to_string('accounts/activation_email.html', {
-            #     'user': user,
-            #     'domain': current_site.domain,
-            #     'uid': urlsafe_base64_encode(force_bytes(user.pk)).decode(),
-            #     'token': account_activation_token.make_token(user),
-            # })
-            # send_mail(subject, message, 'noreply@yourdomain.com', [email], fail_silently=False)
+            
 
             # messages.success(request, 'We have sent you an email, please confirm your email address to complete registration.')
 
-            return redirect("login")
+            return redirect("/")
         else:
             # Update the context dictionary with the form object
             context['registration_form'] = form
@@ -132,25 +104,3 @@ def logout_view(request):
     return redirect("home")
 
 
-# forgot password view
-
-
-# activate _email
-
-def activate_user(request, uidb64, token):
-    try:
-
-        uid = force_str(urlsafe_base64_decode(uidb64))
-
-        user = NewUser.objects.get(pk=uid)
-    except Exception as e:
-
-        user = None
-    if user and generate_token.check_token(user, token):
-        user.is_email_verified = True
-        user.save()
-        messages.add_messages(request, messages.SUCCESS,
-                              'Email verified, Your account has been created successfully')
-        return redirect(reverse('login'))
-
-    return render(request, 'accounts/activate_failed.html', {'user': user})

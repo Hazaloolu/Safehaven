@@ -508,12 +508,18 @@ footer {
     .hero-section h1 {
         text-align: center;
         text-transform: capitalize;
-        font-size: 1.9rem;
-        line-height: 1.5em;
+        font-size: 1.5rem;
+        line-height: 1em;
         width: 90%;
         margin: auto;
 
     }
+
+.hero-section p{
+ width:90%;
+margin:auto;
+line-height:2em;
+}
 
     /* -------------- Search field ------------- */
 

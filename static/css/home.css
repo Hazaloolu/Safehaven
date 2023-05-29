@@ -513,11 +513,15 @@ footer {
         width: 90%;
         margin: auto;
         margin-bottom:5%;
-background: linear-gradient(45deg, black, green);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+
 
     }
+
+.hero-section span{
+background: linear-gradient(45deg, black, #00897b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+}
 
 .hero-section p{
  width:80%;

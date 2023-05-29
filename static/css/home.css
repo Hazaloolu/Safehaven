@@ -518,7 +518,7 @@ footer {
     }
 
 .hero-section span{
-background: linear-gradient(45deg, black, #00897b);
+background: linear-gradient(75deg, black, #00897b);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
 }

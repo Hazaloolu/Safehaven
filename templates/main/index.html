@@ -27,7 +27,7 @@
                     <li><a href="admin">Admin</a></li>
                 {% endif %}
                     <li><a href="{% url 'BecomeAgent' %}">Become an agent</a></li>
-                    <li><a href="{% url 'BecomeAgent' %}">Find an listing</a></li>
+                    <li><a href="{% url 'BecomeAgent' %}">Find a listing</a></li>
 
                     
                     {% if user.is_authenticated %}
@@ -154,18 +154,30 @@
           
           <div class="faq">
             
+            <div class="faq-wrapper">
+                <div class="faq-question">
+                    <button class="faq-toggle">Does CampusHome organize listings</button>
+                  </div>
+                  <div class="faq-answer">
+                    <p>Yes.</p>
+                  </div>
+            </div>
+           <div class="faq-wrapper">
             <div class="faq-question">
-              <button class="faq-toggle">Does CampusHome organize listings</button>
-            </div>
-            <div class="faq-answer">
-              <p>Yes.</p>
-            </div>
+                <button class="faq-toggle">Does CampusHome own the accomodations posted</button>
+              </div>
+              <div class="faq-answer">
+                <p>No Spleet does not own the spaces listed, as we have homeowners that list these spaces on our platform.</p>
+              </div>
+           </div>
+           <div class="faq-wrapper">
             <div class="faq-question">
-              <button class="faq-toggle">Does CampusHome own the accomodations posted</button>
-            </div>
-            <div class="faq-answer">
-              <p>No Spleet does not own the spaces listed, as we have homeowners that list these spaces on our platform.</p>
-            </div>
+                <button class="faq-toggle">Does CampusHome own the accomodations posted</button>
+              </div>
+              <div class="faq-answer">
+                <p>No Spleet does not own the spaces listed, as we have homeowners that list these spaces on our platform.</p>
+              </div>
+           </div>
           </div>
           
           <!-- Add more FAQ sections as needed -->
@@ -175,7 +187,7 @@
         <div class="footer-area flex">
            <div>
             <h1 class='site_logo'>CampusHome</h1>
-           <p class='light-text'>CampusHome’s mission is a future where landlords and tenants in Nigeria experience efficient and affordable rental management. request facility management for your property and apply for rental loans. How can we help you today?</p>
+           <p class=''>CampusHome’s mission is a future where landlords and tenants in Nigeria experience efficient and affordable rental management. request facility management for your property and apply for rental loans. How can we help you today?</p>
            </div>
            <div class='links'>
             <a href="" >Become Agent</a>
@@ -184,6 +196,8 @@
             
  
            </div>
+
+           <p>&copy CampusHome 2023</p>
         </div>
     </footer>
                   

@@ -1,6 +1,7 @@
 /* CDN fonts */
 @import url('http://fonts.cdnfonts.com/css/cs-harley');
 @import url('https://fonts.cdnfonts.com/css/sofia-pro');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
 
 :root {
     --background-white: #FFFFFF;
@@ -86,7 +87,7 @@ header {
 }
 
 .site_logo {
-    font-family: 'CS Harley', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-size: 1.5rem;
 }
 
@@ -258,7 +259,7 @@ main {
 
 .text p{
     opacity: .8;
-    line-height: 1.5em;
+    line-height: 2em;
 }
 
 .image-wrapper {
@@ -324,6 +325,8 @@ footer {
     margin-top: 4%;
     width: 100%;
     padding: 4% 5%;
+    
+    font-family: 'Sofia Pro', sans-serif;;
     background-color: #e9e9e9;
 
 }
@@ -337,16 +340,21 @@ footer {
     margin-bottom: 2em;
 }
 
+
+
 .links {
     display: grid;
     margin-left: 10%;
     margin-top: 2%;
+    border-bottom: .5px solid var(--black);
 }
 
 .links a {
-    text-decoration: underline;
+    padding: 5%;
     font-weight: 300;
+    font-family: 'Sofia Pro', sans-serif;
 }
+
 
 .links a:hover {
     color: var(--cool-blue);
@@ -357,23 +365,30 @@ footer {
     margin-top: 20%;
 }
 
+.faq-wrapper{
+    border-bottom: .3px solid var(--black);
+    border-top: .3px solid var(--black);
+}
+
 .faq p{
     opacity: .8;
-    padding: 8% 0;
-    line-height: 1.5em;
+    padding: 4% 0 1% 0;
+    line-height: 2em;
 }
 
 .faq h2{
     padding:5% 0;
 }
 
-.faq-question{
-    
+.faq-toggle{
+   margin-bottom: 10%;
+    font-family: 'Sofia Pro', sans-serif;
 }
 
 .faq-answer {
-
+    font-family: 'Sofia Pro', sans-serif;
     display: none;
+    margin-bottom: 5%;
   }
   
   .faq-toggle {
@@ -419,22 +434,26 @@ footer {
     }
 
     .site_logo {
-        font-family: 'CS Harley', sans-serif;
+        font-family: 'Nunito Sans', sans-serif;
+        text-transform: uppercase;
         font-size: 1rem;
     }
 
     .navbar {
         
-        width: 90%;
+        width: 100%;
         margin-top: 1em;
         font-family: 'Sofia Pro', sans-serif;
-        height: 85vh;
+        height: 100vh;
         position: absolute;
         right: .2rem;
         top: 2em;
         background-color: #00897b;
         z-index: 999999999;
     display: none;
+    transition: ease-in-out;
+    transition-delay: 1s;
+
     opacity: 0;
     transition: opacity 1s;
 
@@ -450,7 +469,7 @@ footer {
         display: flex;
         flex-direction: column;
         list-style: none;
-        text-align: left;
+        text-align:center;
         gap: 3em;
         padding: 3em 1em;
         
@@ -460,7 +479,8 @@ footer {
 
     nav ul li a {
         color: #FFFFFF;
-        font-size: rem;
+        
+        text-align: center;
     }
 
     .colored a {
@@ -658,21 +678,27 @@ footer {
     footer {
         display: b;
     }
-
+ 
     .footer-area div {
         width:98%;
         margin: auto;
         line-height: 1.5em;
     }
 
+    .footer-area p{
+        line-height: 2em;
+        margin-bottom: 10%;
+    }
+
     .links {
         
-        line-height: 2em;
+        line-height: 10em;
         margin-top: 10%;
+        
     }
 
     .links a{
-        line-height: em;
+        
     }
     
 }

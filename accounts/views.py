@@ -51,6 +51,7 @@ def register(request):
 
             # messages.success(request, 'We have sent you an email, please confirm your email address to complete registration.')
 
+            login(request, user)
             return redirect("/")
         else:
             # Update the context dictionary with the form object

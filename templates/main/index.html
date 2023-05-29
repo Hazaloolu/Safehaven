@@ -105,8 +105,8 @@
             <p class='green '>For Tenants</p>
             <div class="flex">
                 <div class='text'>
-                    <h1>Are you looking to rent or lease an apartment? We’ve got you covered.</h1>
-                <a href="" class='colored'>Add Listing</a>
+                    <p>Are you looking to rent or lease an apartment? We’ve got you covered.</p>
+                <a href="" class='colored'>Find LIsting</a>
                 </div>
                 <div class="image-wrapper">
                    
@@ -116,11 +116,60 @@
                 </div>
             </div>
         </section>
-        <section class='contact-us'>
+        <section class="landlords">
+            <p class='green '>For Landlords</p>
+            <div class="flex">
+                <div class='text'>
+                    <p>Are you a property owner or agent with an available apartment or spare room? Monetize your space and connect with thousands of prospective tenants by listing it on our platform. Earn money effortlessly by reaching a wide audience of house seekers interested in your property.</p>
+                <a href="" class='colored'>Add Listing</a>
+                </div>
+                <div class="image-wrapper">
+                   
+                        {% comment %} <img src="{% static 'images/landlord.jpeg' %}" alt=""> {% endcomment %}
+                        {% comment %} <img src="{% static 'images/houseAgents.jpg' %}" alt=""> {% endcomment %}
+                    
+                </div>
+            </div>
+        </section>
+        {% comment %} <section class='contact-us'>
             <h2>GET IN TOUCH</h2>
             <p>We’d love to hear from you, or answer any questions! Feel free to get in touch with us.</p>
             <a href="" class='colored'>Contact Us</a>
-        </section>
+        </section> {% endcomment %}
+
+
+        <section class="faq">
+            <p class='green '>Common Questions</p>
+            <h2>Frequently Asked Questions</h2>
+            <p>Discover immediate solutions for all your inquiries and doubts about Campushome and its accommodations. Whether you're a member or a visitor, we're here to provide you with comprehensive answers to meet your requirements.</p>
+            {% comment %} <div class="faq-question">
+              <button class="faq-toggle">How does CampusHome works</button>
+            </div>
+            <div class="faq-answer">
+              <p>At Spleet, we offer access to premium residential solutions with options of daily, monthly and quarterly and biannual subscription. Once you find a space you like, simply create a booking along with a few details about yourself. This request is then processed within a few hours.
+
+                No payment is taken until the booking is accepted. We will charge you the rent upfront plus a one-off booking fee and security deposit. You will then receive a confirmation email with the details of your new space.</p>
+            </div> {% endcomment %}
+          </section>
+          
+          <div class="faq">
+            
+            <div class="faq-question">
+              <button class="faq-toggle">Does CampusHome organize listings</button>
+            </div>
+            <div class="faq-answer">
+              <p>Yes.</p>
+            </div>
+            <div class="faq-question">
+              <button class="faq-toggle">Does CampusHome own the accomodations posted</button>
+            </div>
+            <div class="faq-answer">
+              <p>No Spleet does not own the spaces listed, as we have homeowners that list these spaces on our platform.</p>
+            </div>
+          </div>
+          
+          <!-- Add more FAQ sections as needed -->
+          
     </main>
     <footer>
         <div class="footer-area flex">
@@ -157,7 +206,34 @@ menu.addEventListener('click', function () {
     navbar.classList.remove('fade-in');
   }
 });
-</script>jnj
+
+
+
+
+
+
+
+// Get all FAQ toggle buttons
+const faqToggles = document.querySelectorAll('.faq-toggle');
+
+// Add click event listeners to each button
+faqToggles.forEach((toggle) => {
+  toggle.addEventListener('click', () => {
+    const faqAnswer = toggle.parentElement.nextElementSibling;
+
+    // Toggle the active class on the clicked button
+    toggle.classList.toggle('active');
+
+    // Toggle the display of the answer
+    if (faqAnswer.style.display === 'none') {
+      faqAnswer.style.display = 'block';
+    } else {
+      faqAnswer.style.display = 'none';
+    }
+  });
+});
+
+</script>
 </body>
 
 </html>

@@ -256,6 +256,10 @@ main {
     padding: 5%;
 }
 
+.text p{
+    opacity: .8;
+}
+
 .image-wrapper {
     width: 120%;
     background-color: #fafafa;
@@ -290,8 +294,8 @@ main {
 }
 
 .text h1 {
-    font-size: 35px;
-    opacity:.7;
+   
+    font-family: 'Sofia Pro', sans-serif;
 }
 
 section .colored {
@@ -306,7 +310,7 @@ section .colored {
 }
 
 .contact-us {
-    background-color: #e6e9ed;
+    background-color: #fafafa;
     padding: 7%;
     text-align: center;
 }
@@ -345,11 +349,55 @@ footer {
 .links a:hover {
     color: var(--cool-blue);
 }
+.faq{
+    width: 90%;
+    margin: auto;
+    margin-top: 20%;
+}
+
+.faq p{
+    opacity: .8;
+    padding: 8% 0;
+}
+
+.faq h2{
+    padding:5% 0;
+}
+
+.faq-question{
+    
+}
+
+.faq-answer {
+
+    display: none;
+  }
+  
+  .faq-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+  }
+  
+  .faq-toggle::after {
+    content: '\25B6'; /* Unicode character for right-pointing triangle */
+    display: inline-block;
+    margin-left: 5px;
+    transform: rotate(90deg);
+    transition: transform 0.3s;
+  }
+  
+  .faq-toggle.active::after {
+    transform: rotate(0deg);
+  }
+  
 
 
 /* ------ Mobile View -------- */
 
 @media(max-width:768px) {
+    
     body {}
 
     header {
@@ -494,7 +542,7 @@ footer {
     }
 
     .text h1{
-        font-size: 1.3rem;
+        font-size: 1rem;
         opacity:.7;
     }
 
@@ -561,7 +609,7 @@ footer {
         background-color:#00897b;
         color: #e6e9ed;
         width: 50%;
-        padding: 1em;
+        padding: .7em;
         display: flex;
         justify-content: center;
         text-align: center;
@@ -573,15 +621,22 @@ footer {
 
     section .colored {
         
-        padding: .5em;
+        padding: .7em;
       
         width: 50%;
+        
+        display: flex;
+        justify-content: center;
+        width: 50%;
+        margin:0%;
+        margin-top: 15%;
+        
         
     }
     
 
     .contact-us {
-        background-color: #e6e9ed;
+        background-color: #fafafa;
         padding: 5%;
         text-align: center;
     }

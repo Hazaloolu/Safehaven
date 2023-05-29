@@ -21,7 +21,7 @@
   <body>
     <header>
       <a href="javascript:history.back()"
-        ><i class="fa-solid fa-arrow-left icon-left"></i> Back to Listings</a
+        ><i class="fa-solid fa-arrow-left icon-left"></i> Back</a
       >
     </header>
     <main>
@@ -33,34 +33,16 @@
               <p>{{listing.school}}</p>
             </div>
             <div class="listing-links">
-              <button onclick="copyFunction()">
-                <a href="">Copy Link </a><i class="fa-solid fa-link"></i>
-              </button>
+              
               {% comment %}
               <form action="{% url 'add_favorite' %}" method="post">
                 {% csrf_token %} {{ form.as_p }} {% endcomment %}
-                <button>
-                  Add to favourite
-                  <i class="fa-regular fa-heart"></i>
-                </button>
+              
                 {% comment %}
               </form>
               {% endcomment %}
              
-             {% if user.is_authenticated %}
-             <button>
-              <a
-                href="https://wa.me/{{listing.Agent.phone_number}}?text=Hello!%20I'm%20very%20interested%20in%20your%20accomodation%20listing%20(%20http://localhost:8000/listing/{{listing.pk }})%20on%20CampusHome.%20Could%20we%20schedule%20a%20time%20for%20me%20to%20view%20the%20property%20and%20discuss%20the%20details?"
-                target="_blank"
-                class="colored"
-                >Message Agent</a
-              >
-            </button>
-            {% else %}
-            <button>
-              <a href="{% url 'login' %}"  class="colored">Log in</a>
-            </button>
-             {% endif %}
+             
               
             </div>
           </div>
@@ -74,6 +56,11 @@
                 alt="{{Hostel_name}}"
                 id="preferred-image"
               />
+
+              <img src="{{listing.image_2.url}}" alt="{{Hostel_name}}" class='hide' />
+                
+              
+              <img src="{{listing.image_3.url}}" alt="{{Hostel_name}}" class='hide'/>
                </div>
             
 
@@ -95,24 +82,46 @@
 
           
           </div>
+          <div class="fixedDiv">
+
+            <p >NGN {{listing.price}} </p>
+            {% if user.is_authenticated %}
+             
+              <a
+                href="https://wa.me/{{listing.Agent.phone_number}}?text=Hello!%20I'm%20very%20interested%20in%20your%20accomodation%20listing%20(%20http://localhost:8000/listing/{{listing.pk }})%20on%20CampusHome.%20Could%20we%20schedule%20a%20time%20for%20me%20to%20view%20the%20property%20and%20discuss%20the%20details?"
+                target="_blank"
+                class="colored"
+                >Message Agent</a
+              >
+            
+            {% else %}
+           
+              <a href="{% url 'login' %}"  class="colored">Log in</a>
+            
+             {% endif %}
+             
+          </div>
           <div class="flex-it">
             <div class="address line">
-              <h2>{{listing.state}} | {{listing.LGA}}</h2>
+              <p>{{listing.state}} | {{listing.LGA}}</p>
             <p class='light-text'>{{listing.Address}}</p>
             </div>
-            <h2 class="bold-text">Accomodation Description:</h2>
+           <div class="reduce-width">
+            <p class="">Accomodation Description:</p>
+            <p class='light-text'>{{listing.description}}</p>
+           </div>
 
             
 
            
-            <p class="light-text line">{{listing.description}}</p>
+            <p class="light-text line desc">{{listing.description}}</p>
             
             
             <div class="amenities line">
              
               
               {% if selected_options %}
-              <h2 class="bold-text">What this listing offers </h2>
+              <h2 class="">What this listing offers </h2>
               
               {% for options in selected_options %}
                 <p>{{options}} | </p>
@@ -122,7 +131,7 @@
                 
             </div>
             
-           <p class="light-text line">This Listing was added on <span class='bold-text'>{{listing.date_time_uploaded}}</span></p>
+           <p class="light-text line">This Listing was added on <span >{{listing.date_time_uploaded}}</span></p>
             {% comment %} <p class="light-text">Agent Name : <span class = 'bold-text'>{{listing.Agent.name}}</span></p> {% endcomment %}
           <div class="flex">
             <div class="price">

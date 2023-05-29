@@ -86,7 +86,7 @@
 
             <p >NGN {{listing.price}} </p>
             {% if user.is_authenticated %}
-             <a href="https://wa.me/{{ listing.Agent.phone_number }}?text=Hello!%20I'm%20very%20interested%20in%20your%20accommodation%20listing%20(%20https://campushome.up.railway.app/Accommodation/Listing/{{ listing.pk }})%20on%20CampusHome.%20Could%20we%20schedule%20a%20time%20for%20me%20to%20view%20the%20property%20and%20discuss%20the%20details?"
+             <a href="https://wa.me/{{ listing.Agent.phone_number }}?text=Hello!%20I'm%20very%20interested%20in%20your%20accommodation%20listing%20(%20https://campushome.up.railway.app/Accommodation/Listing{{ listing.pk }})%20on%20CampusHome.%20Could%20we%20schedule%20a%20time%20for%20me%20to%20view%20the%20property%20and%20discuss%20the%20details?"
    target="_blank"
    class="colored">Message Agent</a>
 

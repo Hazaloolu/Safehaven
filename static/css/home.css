@@ -501,7 +501,7 @@ footer {
 
 
     .hero-section {
-        margin-top: 2em;
+        margin-top: 3em;
         width: ;
     }
 
@@ -509,9 +509,10 @@ footer {
         text-align: center;
         text-transform: capitalize;
         font-size: 1.9rem;
-        line-height: 1em;
+        line-height: 1.5em;
         width: 90%;
         margin: auto;
+        margin-bottom:5%;
 
     }
 

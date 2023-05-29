@@ -48,7 +48,7 @@ def Add_listing(request):
 
         else:
             form = AccomodationForm()
-        return render(request, 'listing/add_listing.html', {'form': form})
+        return render(request, 'listing/Add_listing.html', {'form': form})
     else:
         # user is not autehnticated
         # redirect to the login page with the next parameter

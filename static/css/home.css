@@ -513,6 +513,9 @@ footer {
         width: 90%;
         margin: auto;
         margin-bottom:5%;
+background: linear-gradient(45deg, black, green);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
 
     }
 

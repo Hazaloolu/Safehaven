@@ -51,7 +51,9 @@
       </div>
     {% endfor %}
     {% else %}
-    <h1 class='absolute light-text'>No available listing that matches the search query "{{search_query}}"</h1>
+    <h1 class='absolute light-text'>All lisings in "{{search_query}}"</h1>
+<h3
+>No matching listing found</h3>
     <div class="image-container">
       <img src="{% static 'images/empty_search.png' %}" alt="" />
     </div>

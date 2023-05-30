@@ -233,7 +233,7 @@ display: none;
   }
 
   .desc{
-    display: none;
+    line-height:1.5em;
   }
 
   .fixedDiv *{
@@ -274,7 +274,7 @@ display: none;
     
  
     width: 100%;
-    baz
+    
   }
   
   .hide{

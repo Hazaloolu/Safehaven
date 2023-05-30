@@ -6,13 +6,7 @@ from .forms import RegistrationForm
 from accounts.models import NewUser
 from django.views.decorators.csrf import requires_csrf_token
 from django.contrib import messages
-# from django.utils.encoding import force_str
-# from django.utils.http import urlsafe_base64_decode
-# from django.contrib.sites.shortcuts import get_current_site
-# from django.template.loader import render_to_string
-# from django.core.mail import send_mail
-# from .forms import RegistrationForm
-# from .token_generator import account_activation_token
+
 
 
 
@@ -49,10 +43,10 @@ def register(request):
            
             
 
-            # messages.success(request, 'We have sent you an email, please confirm your email address to complete registration.')
+           
 
-            login(request, user)
-            return redirect("/")
+            
+            return redirect("login")
         else:
             # Update the context dictionary with the form object
             context['registration_form'] = form

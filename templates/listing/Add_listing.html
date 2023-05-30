@@ -40,6 +40,7 @@
         </div>
         <div class="profile-card">
           <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'inbox' %}">Agent Inbox</a></li>
             <li><a href="{% url 'dashboard' %}">Tenant Dashboard</a></li>
             <li><a href="">My Account</a></li>
@@ -97,8 +98,9 @@
                                         
                                           {% for amenity in form.amenities %}
                                           <div class="amenity">
-                                            <label for="{{ amenity.id_for_label }}">{{ amenity.choice_label }}</label>
-                                            <input type="checkbox" value="{{ amenity.value }}">
+                                          
+                                            <label for="{{ amenity.id_for_label }}"><span>{{ amenity.choice_label }}</span></label>
+                                            <input type="checkbox" id="{{ amenity.id_for_label }}" name="{{ amenity.html_name }}" value="{{ amenity.value }}">
                                           </div>
                                           {% endfor %}
                                             

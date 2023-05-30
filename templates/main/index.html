@@ -12,14 +12,14 @@
     <scrip src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
     <link href="{% static 'fontawesomefree/css/all.min.css' %}"  rel="stylesheet" type="text/css"/>
 
-    <title>CampusHome - Home</title>
+    <title>CAMPUSHOME - Home</title>
 </head>
 <body>
     <div id="preloader"></div>
     <header>
        <div class="header-area">
     
-            <h1 class='site_logo'>  CAMPUSHOME</h1>
+            <h1 class='site_logo'>  <a href="{% url 'home' %}">CAMPUSHOME</a></h1>
             <!-- Navigation bar with links to sign in and create account pages -->
             <nav class="navbar">
                 <ul>
@@ -28,6 +28,7 @@
                 {% endif %}
                     <li><a href="{% url 'BecomeAgent' %}">Become an agent</a></li>
                     <li><a href="{% url 'BecomeAgent' %}">Find a listing</a></li>
+                    <li><a href="{% url 'Add_listing' %}">Add a listing</a></li>
 
                     
                     {% if user.is_authenticated %}
@@ -190,7 +191,7 @@
     <footer>
         <div class="footer-area flex">
            <div>
-            <h1 class='site_logo'>CampusHome</h1>
+            <h1 class='site_logo'>CAMPUSHOME</h1>
            <p class=''>CampusHome’s mission is a future where landlords and tenants in Nigeria experience efficient and affordable rental management. request facility management for your property and apply for rental loans. How can we help you today?</p>
            </div>
            <div class='links'>
@@ -201,7 +202,7 @@
  
            </div>
 
-           <p>&copy CampusHome 2023</p>
+           <p>&copy CAMPUSHOME 2023</p>
         </div>
     </footer>
                   

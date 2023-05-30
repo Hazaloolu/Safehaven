@@ -166,7 +166,7 @@ form textarea {
   user-select: none;
   background-image: none;
   border: 1px solid transparent;
-  border-radius: 4px;
+  border-radius: 5px;
   color: #fff;
   background-color: #00897b;
   border-color: #00897b;
@@ -338,25 +338,25 @@ form .form-group input[type="file"]+label:hover {
 }
 
 
-.amenities {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+
+  .amenities {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .amenity {
+    width: 25%;
+    box-sizing: border-box;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+  }
   
-}
+  .amenity input[type="checkbox"] {
+    margin-right: 5px;
+  }
 
-.amenity {
-width: 100%;
-padding: 1em;
-margin-bottom: 3em;
-}
 
-.amenity input[type='checkbox'] {
-
-  height: 1.2em;
-  margin-top: -2em;
-  margin-left: 3em;
-
-}
 
 .amenity input[type='checkbox']:checked {
   background-color: green;
@@ -364,11 +364,11 @@ margin-bottom: 3em;
 
 .amenities h3 {
   font-size: 16px;
-  color: #00897b;
+  
 }
 
 .amenities label {
-  margin-bottom: 2em;
+ 
   opacity: .8;
   font-size: 10px;
 }
@@ -447,25 +447,36 @@ form label {
 }
 
 .amenities {
-display:grid;
-grid-template-columns: repeat(15,70%);
-        grid-template-rows: auto;
-  overflow-x: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .amenity {
-width: 100%;
-padding: 1em;
-margin-bottom: 3em;
+  width: 45%;
+  box-sizing: border-box;
+  padding: 1px;
+  display: flex;
+  align-items: center;
 }
 
-.amenity input[type='checkbox'] {
-
-  height: 1.2em;
-  margin-top: -2em;
-  margin-left: 3em;
-
+.amenity input[type="checkbox"] {
+  margin-right: 1px;
+  align-self: flex-start;
 }
+
+.amenity label {
+  display: flex;
+  align-items: center;
+}
+
+.amenity label span {
+  margin-right: 2px; /* Adjust the space between label and checkbox */
+  display: inline-block;
+  width: 100px; /* Adjust the width of the label if needed */
+}
+
+
 
 .amenity input[type='checkbox']:checked {
   background-color: green;
@@ -476,11 +487,11 @@ margin-bottom: 3em;
   color: #00897b;
 }
 
-.amenities label {
-  margin-bottom: 2em;
-  opacity: .8;
-  font-size: 10px;
+.right-btn {
+  margin-right: auto;
+  margin-top: 10%;
 }
+
 
 .upload_div {
   width: 100%;

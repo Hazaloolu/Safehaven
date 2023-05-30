@@ -201,7 +201,9 @@ main {
 
 /* GENERAL */
 .container {
-    width: 100%;
+    width: 95%;
+    margin: auto;
+    background-color: ;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -610,14 +612,14 @@ line-height:2em;
         display: flex;
        align-items: center;
         flex-direction: row;
-        font-size: ;
+        
     }
      
     .hostel_name{
         font-size: .5rem;
     }
     .price {
-        font-size: .8rem;
+        font-size: 1rem;
         margin-top: -30%;
         
     }
@@ -638,19 +640,14 @@ line-height:2em;
     .box {
         width: 95%;
         
-        margin-right:10em;
+        margin-left:-.1px;
 
      
     }
 
     .line a{
-        background-color:#00897b;
-        color: #e6e9ed;
-        width: 50%;
-        padding: .7em;
-        display: flex;
-        justify-content: center;
-        text-align: center;
+       
+        padding: 4%;
         
     }
 

@@ -257,7 +257,7 @@ display: none;
   }
 
   .wrapper {
-    width: 90%;
+    width: 100%;
   
     margin: auto;
   
@@ -274,6 +274,7 @@ display: none;
     
  
     width: 100%;
+    baz
   }
   
   .hide{
@@ -290,7 +291,8 @@ display: none;
  
   .main-image img {
 
-    width: 100vw;
+    width: 90vw;
+  margin-left: -13px;
     height: auto;
   }
   

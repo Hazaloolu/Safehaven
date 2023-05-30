@@ -76,12 +76,13 @@
                         
                             
                         <div class="box">
-                            <img
+                          <a href="{% url 'listed' accomodations.id %}"><img
                             src="{{accomodations.image_1.url}}"
                             alt="{{agent.Agent_name}}"
                             width="22%"
                             height="150px"
-                          />
+                          /></a>
+                            
                            <div class="flex mobile-flex">
                                <p class='hostel_name bold-text '>{{accomodations.Hostel_name}}</p>
                                <p class='light-text'>{{accomodations.state}}</p>
@@ -89,8 +90,10 @@
                             <p class='light-text'>{{accomodations.school}}</p>
                 
                             <div class="flex line">
-                                <p class="price  bold-text">NGN {{accomodations.price}} <span class='light-text small '>/year</span> </p>
-                                <a href="{% url 'listed' accomodations.id %}">View</a>
+                                <p class="  bold-text price">NGN {{accomodations.price}} <span class='light-text small '>/year</span> </p><a href="{% url 'listed' accomodations.id %}">View Details</a>
+
+                        
+                                
                             </div>
              
                

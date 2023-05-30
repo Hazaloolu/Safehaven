@@ -35,7 +35,7 @@
                     <li><a href="{% url 'inbox' %}">Inbox</a></li>
                     <li class='colored'><a href="{% url 'logout_view' %}">Log out</a></li>
                     {% else %}
-                    <li mobile-colored><a href="{% url 'login' %}" target="_blank">Sign in</a></li>
+                    <li class= 'mobile-colored'><a href="{% url 'login' %}" target="_blank">Sign in</a></li>
                     <li class='colored mobile-colored'><a href="{% url 'register' %}" target = "_blank">Create account</a></li>
                     {% endif %}
                 </ul>

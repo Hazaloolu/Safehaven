@@ -491,15 +491,16 @@ footer {
     
     }
 
-    /* .mobile-colored{
+     .mobile-colored{
         background-color: #FFFFFF;
-        color: #00897b;
-        width: 80%;
+        color: black;
+        width: 60%;
         margin: auto;
         text-align: center;
-        padding: ;
+        padding:1em ;
+        border-radius:10px;
     }
-     */
+     
 
 
     .hero-section {

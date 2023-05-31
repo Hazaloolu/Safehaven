@@ -146,15 +146,18 @@ header{
         
         width:100%;
         margin: auto;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         margin-bottom: 10%;
     }
-
-    .wrapper .box *{
-        padding:1% 2%;
+.mobile-flex{
+    padding: 1% 2%;
+}
+    .wrapper .box *:not(img){
+        
     }
     .box img{
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
+        
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
     }
   }

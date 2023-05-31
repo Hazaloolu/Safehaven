@@ -153,4 +153,8 @@ header{
     .wrapper .box *{
         padding:1% 2%;
     }
+    .box img{
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
   }

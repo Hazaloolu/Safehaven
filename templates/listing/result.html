@@ -49,7 +49,7 @@
  </header>
  <main>
 
-<p class='result-p light-text'>All listings in <span>{{search_query}}</span></p>
+
 
     
   {% if accomodations %}
@@ -94,9 +94,9 @@
       </div>
     {% endfor %}
     {% else %}
-    <h1 class='absolute light-text'>All lisings in "{{search_query}}"</h1>
-<h3
->No matching listing found</h3>
+  
+<p 
+>oooppps! No matching listing found</p>
     <div class="image-container">
       <img src="{% static 'images/empty_search.png' %}" alt="" />
     </div>

@@ -160,4 +160,15 @@ header{
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
     }
+.image-container{
+   
+    margin: auto;
+}
+
+    .image-container img{
+        width: 90%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+    }
   }

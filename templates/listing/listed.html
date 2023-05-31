@@ -129,7 +129,7 @@
                 
             </div>
             
-           <p class="light-text line">This Listing was added on <span class = 'bold-text' >{{listing.date_time_uploaded}}</span></p>
+           <p class="light-text line">This Listing was added on <span class = 'bold-text' >{{listing.date_time_uploaded|date:"F d, Y"}}</span></p>
             {% comment %} <p class="light-text">Agent Name : <span class = 'bold-text'>{{listing.Agent.name}}</span></p> {% endcomment %}
           <div class="flex">
             <div class="price">
@@ -142,25 +142,7 @@
           
           
         </div>
-        {% comment %}
-        <div class="agent-details">
-          <h3>Agent Details</h3>
-          <div class="flex">
-            <div class="first-details">
-              <img
-                src="{{listing.Agent.profile_image.url}}"
-                alt="Agent_picture"
-              />
-              
-            </div>
-            <div class="details">
-              {{listing.Agent.state}} <br />
-
-              {{listing.Agent.phone_number}}
-            </div>
-          </div>
-        </div>
-        {% endcomment %}
+       
       </div>
     </main>
     <script>

@@ -84,14 +84,28 @@
                             height="150px"
                           /></a>
                             
-                           <div class="flex mobile-flex">
-                               <p class='hostel_name bold-text '>{{accomodations.Hostel_name}}</p>
+                           <div class=" mobile-flex">
+                           <div class="flex not-flex">
+                            <p class='state reduce-opacity'>   
+                              {{accomodations.state}}</p>
+                           <p class='school'>{{accomodations.school}}</p>
+                           </div>
+                          
+                           </p>
+                           <p class='hostel_name'>{{accomodations.Hostel_name}} </p>
+                            <div class="flex line not-flex">
+                              <p class="  bold-text price">NGN {{accomodations.price}} <span class='light-text small '>/year</span> </p>
+                              <a href="{% url 'listed' accomodations.id %}">View Details</a> 
+                  
+                          </div>
+                          <p class='light-text add-padding line'>This listing was posted on {{accomodations.date_time_uploaded|date:"F d, Y"}}</p>
+                               {% comment %} <p class='hostel_name bold-text '>{{accomodations.Hostel_name}}</p>
                                <p class='light-text'>{{accomodations.state}}</p>
                             </div>
                             <p class='bold-text'>{{accomodations.school}}</p>
                 
                             <div class="flex line">
-                                <p class="  bold-text price">NGN {{accomodations.price}} <span class='light-text small '>/year</span> </p><a href="{% url 'listed' accomodations.id %}">View Details</a>
+                                <p class="  bold-text price">NGN {{accomodations.price}} <span class='light-text small '>/year</span> </p><a href="{% url 'listed' accomodations.id %}">View Details</a> {% endcomment %}
 
                         
                                 
@@ -212,47 +226,7 @@
     
        
     
-<script>
-    var navbar = document.querySelector('.navbar');
-navbar.style.display = 'none';
-    var menu = document.querySelector('#menu')
-menu.addEventListener('click', function () {
-  if (navbar.style.display === 'none') {
-    navbar.style.display = 'block';
-    navbar.classList.add('fade-in');
-  } else {
-    navbar.style.display = 'none';
-    navbar.classList.remove('fade-in');
-  }
-});
-
-
-
-
-
-
-
-// Get all FAQ toggle buttons
-const faqToggles = document.querySelectorAll('.faq-toggle');
-
-// Add click event listeners to each button
-faqToggles.forEach((toggle) => {
-  toggle.addEventListener('click', () => {
-    const faqAnswer = toggle.parentElement.nextElementSibling;
-
-    // Toggle the active class on the clicked button
-    toggle.classList.toggle('active');
-
-    // Toggle the display of the answer
-    if (faqAnswer.style.display === 'none') {
-      faqAnswer.style.display = 'block';
-    } else {
-      faqAnswer.style.display = 'none';
-    }
-  });
-});
-
-</script>
+<script src="{% static 'js/script.js' %}"></script>
 </body>
 
 </html>

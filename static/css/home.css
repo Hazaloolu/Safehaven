@@ -11,6 +11,14 @@
 
 /* ----------------- General styling ------------- */
 
+.reduce-opacity{
+    opacity: .8;
+    
+}
+
+.add-padding{
+    padding: 2% 0;
+}
 .bold-text {
     font-weight: bold;
 }
@@ -214,11 +222,11 @@ main {
 .box {
     width: 90%;
     margin: auto;
-
     margin: 2em;
     background-color: white;
     font-weight: 500;
 }
+
 
 .box img {
     width: 100%;
@@ -227,28 +235,17 @@ main {
     text-align: center;
 }
 
-.box h3 {
-    padding: .5em;
-    font-size: 18px;
-    font-weight: 600;
+.box .state, .box .school{
+    font-family: 'Sofia Pro', sans-serif;
+    text-transform: capitalize;
+    padding: 1%;
 }
 
-.box p {
-
-    padding: 0.5em;
-}
-
-.hostel_name {
-    font-size: 10px;
-    text-transform: uppercase;
-}
-
-.box a {
-    /* background-color: var(--cool-blue);
-    color:var(--background-white);
-    padding: .5em 1em; */
-    align-items: center;
-
+.box .hostel_name{
+    font-family: 'Sofia Pro', sans-serif;
+    text-transform: capitalize;
+    padding: 1%;
+   
 }
 
 .landlords {
@@ -574,6 +571,11 @@ line-height:2em;
         flex-direction: column;
        
     }
+    .not-flex {
+        display: flex;
+        flex-direction: row;
+       
+    }
 
     
 
@@ -608,13 +610,7 @@ line-height:2em;
         
     }
 
-    .mobile-flex{
-        display: flex;
-       align-items: center;
-        flex-direction: row;
-        
-    }
-     
+    
     .hostel_name{
         font-size: .8rem;
     }
@@ -645,11 +641,6 @@ line-height:2em;
      
     }
 
-    .line a{
-       
-        padding: 4%;
-        
-    }
 
     
 

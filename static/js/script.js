@@ -1,41 +1,42 @@
-function openCity(evt, stepName) {
-  // hide all tab content sections
-  document.querySelectorAll('.tabcontent').forEach(function (tab) {
-    tab.style.display = 'none';
+var navbar = document.querySelector('.navbar');
+navbar.style.display = 'none';
+    var menu = document.querySelector('#menu')
+menu.addEventListener('click', function () {
+  if (navbar.style.display === 'none') {
+    navbar.style.display = 'block';
+    navbar.classList.add('fade-in');
+  } else {
+    navbar.style.display = 'none';
+    navbar.classList.remove('fade-in');
+  }
+});
+
+
+
+
+
+
+
+// Get all FAQ toggle buttons
+const faqToggles = document.querySelectorAll('.faq-toggle');
+
+// Add click event listeners to each button
+faqToggles.forEach((toggle) => {
+  toggle.addEventListener('click', () => {
+    const faqAnswer = toggle.parentElement.nextElementSibling;
+
+    // Toggle the active class on the clicked button
+    toggle.classList.toggle('active');
+
+    // Toggle the display of the answer
+    if (faqAnswer.style.display === 'none') {
+      faqAnswer.style.display = 'block';
+    } else {
+      faqAnswer.style.display = 'none';
+    }
   });
+});
 
-  // remove the "active" class from all tab links
-  document.querySelectorAll('.tablinks').forEach(function (tab) {
-    tab.classList.remove('active');
-  });
-
-  // show the tab content with the specified stepName ID
-  document.getElementById(stepName).style.display = 'block';
-
-  // add the "active" class to the clicked tab link
-  evt.currentTarget.classList.add('active');
-}
-// Get the element with id="defaultOpen" and click on it
-// document.getElementById("defaultOpen").click();
-
-
-
-// select the search field
-const SearchList = document.querySelector('#search-list')
-
-// add a focus event listener
-SearchList.addEventListener('focus', function () {
-  // set the outline color to green when the field is focused
-  SearchList.style.outlineColor = '#00897b'
-})
-
-// add a blur event listener
-
-
-
-
-
-// change the color of the checkbox when clicked
 
 
 

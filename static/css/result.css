@@ -1,32 +1,156 @@
-.wrapper{
-    
-    width: 85%;
-    margin: auto;
-    margin-top:3%;
-    display: block;
-    padding: ;
-    
+@import url('https://fonts.cdnfonts.com/css/sofia-pro');
+
+body{
+    font-family: 'Sofia Pro', sans-serif;
 }
 
-.absolute{
-    text-align: center;
-   padding: 2%;
-   width: 60%;
-   margin: auto;
-}
-
-
-.wrapper .listed{
-    width: 100%;
-    margin-bottom:-1em;
-}
-
-
-
-.image-container img{
-    margin: auto;
+header{
     display: flex;
-    justify-content: center;
-    width: 30%;
+    justify-content:space-between;
+ }
+ 
+ /* -------------- Search field ------------- */
+
+ .search_field {
+    width: 75%;
+    margin: auto;
+
+    margin-top: 4%;
+    border: .4px solid #303030;
+    
+    
+}
+.search_field form button {
+
+    background: none;
+    background-color: var(--cool-blue);
+    border: none;
+ 
     height: auto;
+    color: #FFFFFF;
+    outline: none;
+    border-radius: 50%;
+}
+
+.search_field form input {
+    border: none;
+    outline: none;
+    background: none;
+    color: black;
+    width: 80%;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+  @media(max-width:768px){
+    header {
+        position: relative;
+        padding: 2%;
+        border-bottom: 1px solid #D3D3D3;
+       
+    }
+    .search_field form button {
+
+        background: none;
+
+        border: none;
+     
+        height: 1vh;
+        color:var(--cool-blue);
+        outline: none;
+        border-radius: 50%;
+    }
+    .navbar {
+        
+        width: 100%;
+        margin-top: 1em;
+        font-family: 'Sofia Pro', sans-serif;
+        height: 100vh;
+        position: absolute;
+        right: .2rem;
+        top: 2em;
+        background-color: #00897b;
+        z-index: 999999999;
+    display: none;
+    transition: ease-in-out;
+    transition-delay: 1s;
+
+    opacity: 0;
+    transition: opacity 1s;
+
+    }
+
+    .navbar.fade-in {
+        opacity: 1;
+    }
+
+    nav ul {
+        
+        color:#e6e9ed ;
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        text-align:center;
+        gap: 3em;
+        padding: 3em 1em;
+        
+      
+        
+    }
+
+    nav ul li a {
+        color: #FFFFFF;
+        
+        text-align: center;
+    }
+
+    .colored a {
+       padding: 0;
+        background: none;
+    
+    }
+    #menu{
+        padding: 3%;
+    }
+
+    main{
+        width: 95%;
+        margin: auto;
+        margin-top: -3em;
+    }
+
+    .result-p{
+        font-size: 16px;
+        font-family: 'Sofia Pro', sans-serif;
+    }
+
+    .result-p span{
+        text-transform: capitalize;
+    }
+    .wrapper{
+        width: 90%;
+        margin: auto;
+        margin-top: 10%;
+       
+    }
+    
+    .wrapper .box{
+        
+        width:100%;
+        margin: auto;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        margin-bottom: 10%;
+    }
+
+    .wrapper .box *{
+        padding:1% 2%;
+    }
   }

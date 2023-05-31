@@ -9,44 +9,87 @@
     <link rel="stylesheet" href="{% static 'css/home.css' %}" />
     <link rel="stylesheet" href="{% static 'css/inbox.css' %}" />
     <link rel="stylesheet" href="{% static 'css/result.css' %}" />
-    <title>CampusHome - search result</title>
+              {% comment %} Font awesome link {% endcomment %}
+              <scrip src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+                <link href="{% static 'fontawesomefree/css/all.min.css' %}"  rel="stylesheet" type="text/css"/>
+    <title>CAMPUSHOME - search result</title>
 </head>
 <body>
-  <header>
-    <div class="header-area">
- 
-         <h1 class='site_logo'>CampusHome</h1>
-         <!-- Navigation bar with links to sign in and create account pages -->
-         <a href="javascript:history.back()"
-        ><i class="fa-solid fa-arrow-left icon-left"></i> Back</a
-      
-        
-
-  </div>
-         
+  <header id='header'>
+    <div class="search_field">
+      <form action="{% url 'search' %}">
+         <input type="search" name="search" id="search" required  placeholder='Seach by location, state or university...'></input>
+         <button id='btn'>Search</button>
+         <button  class='arrow'><i class="fa-solid fa-magnifying-glass"></i></button>
+         </form>
     </div>
+
+    <nav class="navbar">
+      <ul>
+          {% if user.is_superuser %}
+          <li><a href="admin">Admin</a></li>
+      {% endif %}
+          <li><a href="{% url 'BecomeAgent' %}">Become an agent</a></li>
+          <li><a href="{% url 'BecomeAgent' %}">Find a listing</a></li>
+          <li><a href="{% url 'Add_listing' %}">Add a listing</a></li>
+
+          
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'inbox' %}">Inbox</a></li>
+          <li class='colored'><a href="{% url 'logout_view' %}">Log out</a></li>
+          {% else %}
+          <li mobile-colored><a href="{% url 'login' %}" target="_blank">Sign in</a></li>
+          <li class='colored mobile-colored'><a href="{% url 'register' %}" target = "_blank">Create account</a></li>
+          {% endif %}
+      </ul>
+  </nav>
+  <div id="menu" >
+      <i class="fa-solid fa-bars"></i>
+  </div>
  </header>
  <main>
-  
+
+<p class='result-p light-text'>All listings in <span>{{search_query}}</span></p>
+
     
   {% if accomodations %}
-  <h2 class='absolute light-text'>Listings that are related to the query search "{{search_query}}"</h2>
+  
         
   
 
 {% for accomodations in page_obj  %}
       <div class="wrapper">
-        <div class="listed">
-          <img
+              
+        <div class="box">
+          <a href="{% url 'listed' accomodations.id %}"><img
             src="{{accomodations.image_1.url}}"
             alt="{{agent.Agent_name}}"
             width="22%"
             height="150px"
-          />
-          <p>{{accomodations.Hostel_name}}</p>
-          <p>{{accomodations.school}}</p>
-          <p>{{accomodations.state}}</p>
-          <a href="{% url 'result_listed' accomodations.id %}">View Details</a>
+          /></a>
+            
+           <div class=" mobile-flex">
+           <div class="flex not-flex">
+            <p class='state reduce-opacity'>   
+              {{accomodations.state}}</p>
+           <p class='school'>{{accomodations.school}}</p>
+           </div>
+          
+           </p>
+           <p class='hostel_name'>{{accomodations.Hostel_name}} </p>
+            <div class="flex line not-flex">
+              <p class="  bold-text price">NGN {{accomodations.price}} <span class='light-text small '></span> </p>
+              <a href="{% url 'listed' accomodations.id %}">View Details</a> 
+  
+          </div>
+          {% comment %} <p class='light-text add-padding line'>This listing was posted on {{accomodations.date_time_uploaded|date:"F d, Y"}}</p> {% endcomment %}
+              
+        
+                
+            </div>
+
+
+
         </div>
       </div>
     {% endfor %}
@@ -84,6 +127,11 @@
  <footer>
   
  </footer>
+
+ <script src="{% static 'js/script.js' %}"></script>\
+ <script>
+  
+ </script>
     
 </body>
 </html>

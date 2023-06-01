@@ -73,29 +73,38 @@
           You have a total of <span>{{total_listing}}</span> Listing(s)
         </p>
 
-        {% for accomodations in page_obj %}
-        <div class="wrapper">
-          <p class="out_p"></p>
+       
+       {% if accomodations  %}
+       {% for accomodations in page_obj %}
+       <div class="wrapper">
+         <p class="out_p"></p>
 
-          <div class="listed">
-            <img
-              src="{{accomodations.image_1.url}}"
-              alt="{{agent.Agent_name}}"
-              width="22%"
-              height="150px"
-            />
+         <div class="listed">
+           <img
+             src="{{accomodations.image_1.url}}"
+             alt="{{agent.Agent_name}}"
+             width="22%"
+             height="150px"
+           />
 
-            <h4> {{accomodations.Hostel_name|truncatechars:10}} </h4>
+           <h4> {{accomodations.Hostel_name|truncatechars:10}} </h4>
 
-            <p>{{accomodations.Hostel_name}}</p>
-            <p>{{accomodations.school}}</p>
-            <p>{{accomodations.state}}</p>
-            <a href="{% url 'listed' accomodations.id %}">View </a>
-          </div>
-          <button onclick="document.getElementById('id01').style.display='block'" ><i class="fa-solid fa-trash out_p"></i></button>
-        </div>
-        
-        {% endfor %}
+           <p>{{accomodations.Hostel_name}}</p>
+           <p>{{accomodations.school}}</p>
+           <p>{{accomodations.state}}</p>
+           <a href="{% url 'listed' accomodations.id %}">View </a>
+         </div>
+         <button onclick="document.getElementById('id01').style.display='block'" ><i class="fa-solid fa-trash out_p"></i></button>
+       </div>
+       {% endfor %}
+
+       {% else %}
+      <div class="else_div">
+        <p>You have not added any accomodation</p>
+        <a class='colored_a' href="{% url 'Add_listing' %}">Add Listing</a>
+      </div>
+       {% endif %}
+       
 
         <div class="pagination">
           <span class="step-links">

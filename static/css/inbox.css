@@ -340,6 +340,22 @@ button {
     color:black;
 }
 
+.else_div{
+    margin-top: 15%;
+}
+
+.colored_a{
+    width: 50%;
+    margin: auto;
+    background-color: var(--cool-blue);
+    color: white;
+    padding: .5em;
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
+    border-radius: 50px;
+    margin-top: 10%;
+}
 
 .pagination{
     margin-top: 7em;

@@ -2,6 +2,7 @@
 @import url('http://fonts.cdnfonts.com/css/cs-harley');
 @import url('https://fonts.cdnfonts.com/css/sofia-pro');
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&family=Unna&display=swap');
 
 :root {
     --background-white: #FFFFFF;
@@ -147,6 +148,7 @@ main {
     line-height: 1.5em;
     width: 80%;
     margin: auto;
+font-family: 'Space Grotesk', sans-serif;
 
 }
 

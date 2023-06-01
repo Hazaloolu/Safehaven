@@ -45,6 +45,7 @@
       </div>
       <div class="profile-card">
         <ul>
+          <li><a href="{% url 'home' %}">Home</a></li>
           <li><a href="{% url 'Agent_details' %}">Add Listing</a></li>
           <li><a href="{% url 'dashboard' %}">Tenants Dashboard</a></li>
           <li><a href="">My Account</a></li>
@@ -100,8 +101,8 @@
 
        {% else %}
       <div class="else_div">
-        <p>You have not added any accomodation</p>
-        <a class='colored_a' href="{% url 'Add_listing' %}">Add Listing</a>
+         <p>You have not added any accomodation</p>
+       <a class='colored_a' href="{% url 'Add_listing' %}">Add Listing</a>
       </div>
        {% endif %}
        

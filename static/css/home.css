@@ -492,8 +492,9 @@ footer {
 
 
     .hero-section {
-        margin-top: 3em;
-        width: ;
+        margin-top:-10em;
+        background-color: rebeccapurple;
+        
     }
 
     .hero-section h1 {
@@ -504,6 +505,7 @@ footer {
         width: 90%;
         margin: auto;
         margin-bottom:5%;
+        margin-top: -15%;
 
 
     }

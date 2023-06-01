@@ -9,7 +9,7 @@
     
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     
-    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    {% comment %} <link rel="stylesheet" href="{% static 'css/home.css' %}" /> {% endcomment %}
     <link rel="stylesheet" href="{% static 'css/inbox.css' %}" />
 
     {% comment %} Font awesome link {% endcomment %}
@@ -27,8 +27,8 @@
         <!-- Navigation bar with links to sign in and create account pages -->
         <nav>
           <ul>
-            <li class><a href="{% url 'home' %}">Home</a></li>
-            <li class="colored">
+            <li class='hide'><a href="{% url 'home' %}">Home</a></li>
+            <li class="colored hide">
               <a href="{% url 'Agent_details' %}"
                 ><i class="fa-solid fa-plus"></i> Add Listing</a
               >
@@ -84,10 +84,13 @@
               width="22%"
               height="150px"
             />
+
+            <h4> {{accomodations.Hostel_name|truncatechars:10}} </h4>
+
             <p>{{accomodations.Hostel_name}}</p>
             <p>{{accomodations.school}}</p>
             <p>{{accomodations.state}}</p>
-            <a href="{% url 'listed' accomodations.id %}">View Details</a>
+            <a href="{% url 'listed' accomodations.id %}">View </a>
           </div>
           <button onclick="document.getElementById('id01').style.display='block'" ><i class="fa-solid fa-trash out_p"></i></button>
         </div>

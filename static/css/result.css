@@ -173,6 +173,7 @@ header{
     }
 
     .else_div{
+text-align: center; 
         width: 90%;
         margin: auto;
         margin-top: 20%;

@@ -101,7 +101,7 @@
                               <a href="{% url 'listed' accomodations.id %}">View Details</a> 
                   
                           </div>
-                          <p class='light-text add-padding line'>This listing was posted on {{accomodations.date_time_uploaded|date:"F d, Y"}}</p>
+                          {% comment %} <p class='light-text add-padding line'>This listing was posted on {{accomodations.date_time_uploaded|date:"F d, Y"}}</p> {% endcomment %}
                                {% comment %} <p class='hostel_name bold-text '>{{accomodations.Hostel_name}}</p>
                                <p class='light-text'>{{accomodations.state}}</p>
                             </div>

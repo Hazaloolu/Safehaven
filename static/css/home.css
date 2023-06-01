@@ -488,16 +488,7 @@ footer {
     
     }
 
-     .mobile-colored{
-        background-color: #FFFFFF;
-        color: black;
-        width: 60%;
-        margin: auto;
-        text-align: center;
-        padding:1em ;
-        border-radius:10px;
-    }
-     
+    */
 
 
     .hero-section {
@@ -610,7 +601,9 @@ line-height:2em;
         padding:3% 10% ;
         
     }
-
+  .school{
+    font-size: 1.1em;
+  }
     
     .hostel_name{
         font-size: .8rem;
@@ -636,7 +629,7 @@ line-height:2em;
 
     .box {
         width: 95%;
-        
+        line-height: 2em;
         margin-left:-.1px;
 
      

@@ -88,11 +88,14 @@
                            <div class="flex not-flex">
                             <p class='state reduce-opacity'>   
                               {{accomodations.state}}</p>
-                           <p class='school'>{{accomodations.school}}</p>
+                              <p class='hostel_name'>{{accomodations.Hostel_name}} 
+                           
                            </div>
                           
                            </p>
-                           <p class='hostel_name'>{{accomodations.Hostel_name}} </p>
+                           
+                            <p class='school'>{{accomodations.school}}</p>
+                           </p>
                             <div class="flex line not-flex">
                               <p class="  bold-text price">NGN {{accomodations.price}} <span class='light-text small '>/year</span> </p>
                               <a href="{% url 'listed' accomodations.id %}">View Details</a> 

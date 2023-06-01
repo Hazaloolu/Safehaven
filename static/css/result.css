@@ -171,4 +171,11 @@ header{
         display: flex;
         justify-content: center;
     }
+
+    .else_div{
+        width: 90%;
+        margin: auto;
+        margin-top: 20%;
+        
+    }
   }

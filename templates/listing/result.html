@@ -49,13 +49,12 @@
  </header>
  <main>
 
-
+<h3>All Listings in {{search_query}}</h3>
 
     
   {% if accomodations %}
   
         
-  
 
 {% for accomodations in page_obj  %}
       <div class="wrapper">
@@ -95,11 +94,13 @@
     {% endfor %}
     {% else %}
   
-<p 
+<div class="else_div">
+  <p 
 >oooppps! No matching listing found</p>
     <div class="image-container">
       <img src="{% static 'images/empty_search.png' %}" alt="" />
     </div>
+</div>
     {% endif %}
 
     <div class="pagination">

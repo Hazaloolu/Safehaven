@@ -33,7 +33,7 @@
                 {% endif %}
                     <li><a href="{% url 'BecomeAgent' %}">Become an agent</a></li>
                     <li><a href="{% url 'BecomeAgent' %}">Find a listing</a></li>
-                    <li><a href="{% url 'Add_listing' %}">Add a listing</a></li>
+                              <li><a href="{% url 'Agent_details' %}">Add Listing</a></li>
 
                     
                     {% if user.is_authenticated %}
@@ -148,8 +148,9 @@
             <div class="flex">
                 <div class='text'>
                     <p>Are you a property owner or agent with an available apartment or spare room? Monetize your space and connect with thousands of prospective tenants by listing it on our platform. Earn money effortlessly by reaching a wide audience of house seekers interested in your property.</p>
-                <a href="" class='colored'>Add Listing</a>
+                <a href="{% url 'Agent_details' %}" class='colored'>Add Lusting</a>
                 </div>
+          
                 <div class="image-wrapper">
                    
                         {% comment %} <img src="{% static 'images/landlord.jpeg' %}" alt=""> {% endcomment %}
@@ -173,7 +174,7 @@
               <button class="faq-toggle">How does CampusHome works</button>
             </div>
             <div class="faq-answer">
-              <p>At Spleet, we offer access to premium residential solutions with options of daily, monthly and quarterly and biannual subscription. Once you find a space you like, simply create a booking along with a few details about yourself. This request is then processed within a few hours.
+              <p>At CAMPUSHOME, we offer access to premium residential solutions with options of daily, monthly and quarterly and biannual subscription. Once you find a space you like, simply create a booking along with a few details about yourself. This request is then processed within a few hours.
 
                 No payment is taken until the booking is accepted. We will charge you the rent upfront plus a one-off booking fee and security deposit. You will then receive a confirmation email with the details of your new space.</p>
             </div> {% endcomment %}
@@ -194,7 +195,7 @@
                 <button class="faq-toggle">Does CampusHome own the accomodations posted</button>
               </div>
               <div class="faq-answer">
-                <p>No Spleet does not own the spaces listed, as we have homeowners that list these spaces on our platform.</p>
+                <p>No CAMPUSHOME does not own the spaces listed, as we have homeowners that list these spaces on our platform.</p>
               </div>
            </div>
            <div class="faq-wrapper">
@@ -202,7 +203,7 @@
                 <button class="faq-toggle">Does CampusHome own the accomodations posted</button>
               </div>
               <div class="faq-answer">
-                <p>No Spleet does not own the spaces listed, as we have homeowners that list these spaces on our platform.</p>
+                <p>No, CAMPUSHOME does not own the spaces listed, as we have homeowners that list these spaces on our platform.</p>
               </div>
            </div>
           </div>

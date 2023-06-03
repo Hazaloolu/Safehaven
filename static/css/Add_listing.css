@@ -379,10 +379,7 @@ form h3 {
 }
 
 @media(max-width:768px){
-  body{
-   
-  }
-
+ \\
   header li{
    list-style: none;
   }
@@ -479,7 +476,7 @@ form label {
 
 
 .amenity input[type='checkbox']:checked {
-  background-color: green;
+  background-color: rgb(241, 242, 241);
 }
 
 .amenities h3 {
@@ -493,12 +490,117 @@ form label {
 }
 
 
+
+
+#desc {
+
+  display: flex;
+  flex-direction: column;
+  
+  width: 100%;
+  height: auto;
+  text-align: left;
+  align-items: center;
+  margin-top: 4em;
+}
+
+#desc label{
+  
+  padding: 0;
+
+  margin-right: auto;
+  margin-top: 2em;
+}
+
+
+/* image upload styling */
+
 .upload_div {
   width: 100%;
   margin: auto;
-  height: 22em;
-  
+  height: 12em;
+  line-height: 3em
+  background-color: ;
 
 }
+.upload_div .upload_img{
+  
+  margin-top: 2em;
+}
+.smaller-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.img-area {
+ 
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  
+ 
+}
+
+.upload_img {
+  margin-top: ;
+  font-size: 40px;
+  color: #00897b;
+}
+.img-area p{
+  
+  font-size: 10px;
+}
+.upload_btn {
+  width: 60%;
+  border-radius: 4px;
+  margin: 0 auto;
+  appearance: none;
+  text-align: center;
+  outline: none;
+  border: none;
+  background-color: #00897b;
+  color: #f7f7f7;
+  padding: .6em;
+  margin-bottom: 6em;
+}
+
+.upload_btn:hover {
+  opacity: .8;
+}
+
+.upload_div img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.btn-con {
+ display: flex;
+ flex-direction: column;
+ gap: 2em;
+ margin-bottom: 5em;
+}
+
+.btn-con button{
+  width:60%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding:.5em 1em;
+  text-align: center;
+  
+}
+
+#page-2 {
+  width: 100%;
+  margin: 0 auto;
+  padding:5px;
+}
+
 
 }

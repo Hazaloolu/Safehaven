@@ -501,5 +501,43 @@ form label {
   
 
 }
+upload_div {
+  width: 100%;
+  margin: auto;
+  height: 22em;
+  border: 2px dashed #00897b;
+  ;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  border-radius: 15px;
+
+}
+
+.smaller-images {
+  display: flex;
+  width: 100%;
+  margin: auto;
+  justify-content: space-between;
+  gap: 2em;
+  margin-top: 2em;
+}
+
+.img-area {
+  height: 24em;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  font-weight: bold;
+}
+
+.upload_img {
+  font-size: 100px;
+  color: #00897b;
+}
+
 
 }

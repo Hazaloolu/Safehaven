@@ -354,6 +354,7 @@ form .form-group input[type="file"]+label:hover {
   
   .amenity input[type="checkbox"] {
     margin-right: 5px;
+background-color:#00897b;
   }
 
 

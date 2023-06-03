@@ -33,7 +33,7 @@
                 {% endif %}
                     <li><a href="{% url 'BecomeAgent' %}">Become an agent</a></li>
                     <li><a href="{% url 'BecomeAgent' %}">Find a listing</a></li>
-                    <li><a href="{% url 'Add_listing' %}">Add a listing</a></li>
+                              <li><a href="{% url 'Agent_details' %}">Add Listing</a></li>
 
                     
                     {% if user.is_authenticated %}
@@ -148,8 +148,9 @@
             <div class="flex">
                 <div class='text'>
                     <p>Are you a property owner or agent with an available apartment or spare room? Monetize your space and connect with thousands of prospective tenants by listing it on our platform. Earn money effortlessly by reaching a wide audience of house seekers interested in your property.</p>
-                <a href="" class='colored'>Add Listing</a>
+                <a href="{% url 'Agent_details' %}" class='colored'>Add Lusting</a>
                 </div>
+          
                 <div class="image-wrapper">
                    
                         {% comment %} <img src="{% static 'images/landlord.jpeg' %}" alt=""> {% endcomment %}
